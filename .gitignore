@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/UnderTheBrand.Domain.Core/bin
+/UnderTheBrand.Domain.Core/obj
+/UnderTheBrand.Domain.Interfaces/bin
+/UnderTheBrand.Domain.Interfaces/obj
