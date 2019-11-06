@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29430.225
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderTheBrand.Domain.Core", "UnderTheBrand.Domain.Core\UnderTheBrand.Domain.Core.csproj", "{98821CC0-D0FE-4A36-A884-9B0769B775CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnderTheBrand.Domain.Core", "UnderTheBrand.Domain.Core\UnderTheBrand.Domain.Core.csproj", "{98821CC0-D0FE-4A36-A884-9B0769B775CF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{4CA9FFCB-F1E8-4F14-BA58-E418BBA58A72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderTheBrand.Domain.Interfaces", "UnderTheBrand.Domain.Interfaces\UnderTheBrand.Domain.Interfaces.csproj", "{1DB222F3-9D6E-42A7-AC32-10C34E28664D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnderTheBrand.Domain.Interfaces", "UnderTheBrand.Domain.Interfaces\UnderTheBrand.Domain.Interfaces.csproj", "{1DB222F3-9D6E-42A7-AC32-10C34E28664D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C13D4610-42E8-46E0-9455-7CA1254B0B4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{8CDE87AB-903B-4415-9AA2-507D0F7EE82B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{81C61B69-6770-4F4C-82FF-1721FEF7BF26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderTheBrand.Infrastructure.DAL", "UnderTheBrand.Infrastructure.DAL\UnderTheBrand.Infrastructure.DAL.csproj", "{CD51290E-B012-4502-A8FD-F29846BD8676}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{1DB222F3-9D6E-42A7-AC32-10C34E28664D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DB222F3-9D6E-42A7-AC32-10C34E28664D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DB222F3-9D6E-42A7-AC32-10C34E28664D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD51290E-B012-4502-A8FD-F29846BD8676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD51290E-B012-4502-A8FD-F29846BD8676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD51290E-B012-4502-A8FD-F29846BD8676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD51290E-B012-4502-A8FD-F29846BD8676}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{98821CC0-D0FE-4A36-A884-9B0769B775CF} = {4CA9FFCB-F1E8-4F14-BA58-E418BBA58A72}
 		{1DB222F3-9D6E-42A7-AC32-10C34E28664D} = {4CA9FFCB-F1E8-4F14-BA58-E418BBA58A72}
+		{CD51290E-B012-4502-A8FD-F29846BD8676} = {C13D4610-42E8-46E0-9455-7CA1254B0B4A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0283DF95-9A95-40ED-BF12-5A4EE2169B92}

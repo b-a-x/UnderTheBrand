@@ -7,3 +7,5 @@
 /UnderTheBrand.Domain.Core/obj
 /UnderTheBrand.Domain.Interfaces/bin
 /UnderTheBrand.Domain.Interfaces/obj
+/UnderTheBrand.Infrastructure.DAL/bin/Debug/netstandard2.1
+/UnderTheBrand.Infrastructure.DAL/obj
