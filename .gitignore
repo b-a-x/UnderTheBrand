@@ -9,3 +9,5 @@
 /UnderTheBrand.Domain.Interfaces/obj
 /UnderTheBrand.Infrastructure.DAL/bin/Debug/netstandard2.1
 /UnderTheBrand.Infrastructure.DAL/obj
+/UnderTheBrand.Server/bin/Debug/netcoreapp3.1
+/UnderTheBrand.Server/obj
