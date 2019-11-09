@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{81
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnderTheBrand.Infrastructure.DAL", "UnderTheBrand.Infrastructure.DAL\UnderTheBrand.Infrastructure.DAL.csproj", "{CD51290E-B012-4502-A8FD-F29846BD8676}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderTheBrand.Server", "UnderTheBrand.Server\UnderTheBrand.Server.csproj", "{96B8A999-3FCE-4D43-9FF7-555DFC7E2B20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderTheBrand.Presentation.Server", "UnderTheBrand.Server\UnderTheBrand.Presentation.Server.csproj", "{96B8A999-3FCE-4D43-9FF7-555DFC7E2B20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

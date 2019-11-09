@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "UnderTheBrand.Server": {
+    "UnderTheBrand.Presentation.Server": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
