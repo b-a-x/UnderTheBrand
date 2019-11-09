@@ -1,4 +1,4 @@
-﻿using UnderTheBrand.Domain.Interfaces.Base;
+﻿using UnderTheBrand.Domain.Core.Interfaces.Base;
 
 namespace UnderTheBrand.Domain.Core.Base
 {
@@ -7,6 +7,8 @@ namespace UnderTheBrand.Domain.Core.Base
     /// </summary>
     public class DomainObject : IDomainObject
     {
+        protected DomainObject() { }
+
         /// <summary>
         /// Индификатор
         /// </summary>

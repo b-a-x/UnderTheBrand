@@ -2,10 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using UnderTheBrand.Domain.Core;
 
-namespace UnderTheBrand.Infrastructure.DAL.DataBase
+namespace UnderTheBrand.Infrastructure.DAL.Context
 {
-    public class UnderTheBrandContext : DbContext
+    public sealed class UnderTheBrandContext : DbContext
     {
+        private UnderTheBrandContext()
+        {
+            Database.EnsureCreated();
+        }
+
         public UnderTheBrandContext(DbContextOptions options)
             : base(options)
         {

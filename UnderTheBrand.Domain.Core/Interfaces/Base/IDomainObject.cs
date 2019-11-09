@@ -1,4 +1,4 @@
-﻿namespace UnderTheBrand.Domain.Interfaces.Base
+﻿namespace UnderTheBrand.Domain.Core.Interfaces.Base
 {
     public interface IDomainObject
     {

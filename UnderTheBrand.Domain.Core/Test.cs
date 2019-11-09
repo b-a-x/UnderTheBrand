@@ -4,5 +4,6 @@ namespace UnderTheBrand.Domain.Core
 {
     public class Test : DomainObject
     {
+        protected Test() { }
     }
 }
