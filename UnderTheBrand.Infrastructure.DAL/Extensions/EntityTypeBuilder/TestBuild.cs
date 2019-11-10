@@ -13,7 +13,7 @@ namespace UnderTheBrand.Infrastructure.DAL.Extensions.EntityTypeBuilder
         {
             test.ToTable(_tableName);
 
-            test.Property(x => x.Id).HasColumnName(_id);
+            test.Property(x => x.Id).ValueGeneratedOnAdd().HasColumnName(_id);
         }
     }
 }

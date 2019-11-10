@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,10 +26,10 @@ namespace UnderTheBrand.Presentation.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<UnderTheBrandContext>(options =>
-                options.UseSqlite("Database_UnderTheBrand"));
+                options.UseSqlite("Filename=Database_UnderTheBrand.db"));
 
+            services.AddControllers();
             services.AddMemoryCache();
-            services.AddMvc();
             services.AddInjection();
         }
 
@@ -42,14 +41,12 @@ namespace UnderTheBrand.Presentation.Server
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
+            app.UseHttpsRedirection();
 
+            app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }
