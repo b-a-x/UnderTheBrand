@@ -8,7 +8,7 @@ namespace UnderTheBrand.Domain.Interfaces.Providers
     /// Базовый интерфей CRUD
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IDomainObjectProvider<T> where T : IDomainObject
+    public interface IEntityObjectProvider<T> where T : IEntityObject
     {
         /// <summary>
         /// Создать

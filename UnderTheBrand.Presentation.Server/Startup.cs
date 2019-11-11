@@ -6,19 +6,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using UnderTheBrand.Infrastructure.DAL.Context;
 using UnderTheBrand.Presentation.Server.Extensions;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace UnderTheBrand.Presentation.Server
 {
     public class Startup
     {
         private readonly IConfiguration _configuration;
-        private readonly IHostingEnvironment _currentEnvironment;
 
-        public Startup(IConfiguration configuration, IHostingEnvironment currentEnvironment)
+        public Startup(IConfiguration configuration)
         {
             _configuration = configuration;
-            _currentEnvironment = currentEnvironment;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.

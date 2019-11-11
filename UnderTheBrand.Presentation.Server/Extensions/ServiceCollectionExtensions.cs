@@ -21,7 +21,7 @@ namespace UnderTheBrand.Presentation.Server.Extensions
 
         private static void AddScoped(IServiceCollection services)
         {
-            services.AddScoped<ITestProvider, TestProvider>();
+            services.AddScoped<IPersonProvider, PersonProvider>();
             services.AddScoped<IBaseService, BaseService>();
         }
 

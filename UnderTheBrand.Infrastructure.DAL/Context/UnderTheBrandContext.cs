@@ -1,26 +1,23 @@
-﻿using UnderTheBrand.Infrastructure.DAL.Extensions.EntityTypeBuilder;
-using Microsoft.EntityFrameworkCore;
-using UnderTheBrand.Domain.Core;
+﻿using Microsoft.EntityFrameworkCore;
+using UnderTheBrand.Domain.Core.Entities;
+using UnderTheBrand.Infrastructure.DAL.Configurations;
 
 namespace UnderTheBrand.Infrastructure.DAL.Context
 {
     public sealed class UnderTheBrandContext : DbContext
     {
-        private UnderTheBrandContext()
-        {
-        }
-
         public UnderTheBrandContext(DbContextOptions options)
             : base(options)
         {
             Database.EnsureCreated();
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            modelBuilder.Entity<Test>().BindTest();
+            base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new PersonConfiguration());
         }
 
-        public DbSet<Test> Tests { get; set; }
+        public DbSet<Person> Persons { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using UnderTheBrand.Domain.Core;
+using UnderTheBrand.Domain.Core.Entities;
+using UnderTheBrand.Domain.Core.Values;
 using UnderTheBrand.Domain.Interfaces.Providers;
 using UnderTheBrand.Presentation.Server.Controllers.Interfaces;
 using UnderTheBrand.Presentation.Server.Services.Interfaces;
@@ -7,13 +8,12 @@ using UnderTheBrand.Presentation.Server.Services.Interfaces;
 namespace UnderTheBrand.Presentation.Server.Controllers
 {
     [Route("api/[controller]")]
-    //[Route("api/base")]
     public class BaseController : Controller, IBaseController
     {
         private readonly IBaseService _service;
-        private readonly ITestProvider _provider;
+        private readonly IPersonProvider _provider;
 
-        public BaseController(IBaseService service, ITestProvider provider)
+        public BaseController(IBaseService service, IPersonProvider provider)
         {
             _service = service;
             _provider = provider;
@@ -22,7 +22,8 @@ namespace UnderTheBrand.Presentation.Server.Controllers
         [HttpGet(nameof(Get))]
         public IActionResult Get()
         {
-            _provider.Create(new Test("Ilia"));
+            var name = new Name("Ilia");
+            _provider.Create(new Person(new PersonalName(name, name), new Age(28)));
             return Ok(_provider.Read());
         }
     }
