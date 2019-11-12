@@ -6,7 +6,7 @@ namespace UnderTheBrand.Infrastructure.DAL.Context
 {
     public sealed class UnderTheBrandContext : DbContext
     {
-        public UnderTheBrandContext(DbContextOptions options)
+        public UnderTheBrandContext(DbContextOptions<UnderTheBrandContext> options)
             : base(options)
         {
             Database.EnsureCreated();

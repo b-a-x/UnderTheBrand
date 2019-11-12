@@ -15,6 +15,7 @@ namespace UnderTheBrand.Domain.Core.Entities
         }
 
         public PersonalName PersonalName { get; set; }
+
         public Age Age { get; set; }
     }
 }

@@ -15,7 +15,6 @@ namespace UnderTheBrand.Infrastructure.DAL.Providers
 
         public PersonProvider(UnderTheBrandContext context) : base(context)
         {
-            if (context == null) throw new ArgumentException(nameof(context));
         }
 
         public async Task<IReadOnlyCollection<Person>> GetList()
