@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
-using UnderTheBrand.Domain.Core.Entities;
-using UnderTheBrand.Domain.Core.Values;
-using UnderTheBrand.Domain.Interfaces.Providers;
 using UnderTheBrand.Presentation.Server.Controllers.Interfaces;
 using UnderTheBrand.Presentation.Server.Services.Interfaces;
 
@@ -16,38 +12,19 @@ namespace UnderTheBrand.Presentation.Server.Controllers
     public class BaseController : Controller, IBaseController
     {
         private readonly IBaseService _service;
-        private readonly IPersonProvider _provider;
-        private readonly ILogger<BaseController> _logger;
+        private readonly ILogger _logger;
 
-        public BaseController(IBaseService service, 
-                              IPersonProvider provider, 
-                              ILogger<BaseController> logger)
+        protected BaseController() { }
+
+        protected BaseController(ILoggerFactory logger)
         {
-            _service = service;
-            _provider = provider;
-            _logger = logger;
+            _logger = logger.CreateLogger(GetType());
         }
 
-        [HttpGet(nameof(Get))]
-        public IActionResult Get()
+        public BaseController(IBaseService service,
+            ILoggerFactory logger) :this(logger)
         {
-            try
-            {
-                LogMethodBegin();
-
-                Name name = new Name("Ilia");
-                _provider.Create(new Person(new PersonalName(name, name), new Age(28)));
-                IReadOnlyCollection<Person> persons = _provider.Read();
-
-                LogMethodEnd(persons);
-                
-                return Ok(persons);
-            }
-            catch (Exception e)
-            {
-                LogMethodError(e);
-                throw;
-            }
+            _service = service;
         }
 
         /// <summary>
