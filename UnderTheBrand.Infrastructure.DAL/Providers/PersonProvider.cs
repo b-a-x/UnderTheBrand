@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +18,7 @@ namespace UnderTheBrand.Infrastructure.DAL.Providers
 
         public async Task<IReadOnlyCollection<Person>> GetList()
         {
-            return await Context.Persons
+            return await _context.Persons
                 .OrderBy(p => p.PersonalName.LastName.Value)
                 .ThenBy(p => p.PersonalName.FirstName.Value)
                 .ToListAsync();

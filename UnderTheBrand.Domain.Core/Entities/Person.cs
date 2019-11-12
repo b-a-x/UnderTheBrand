@@ -1,4 +1,5 @@
 ﻿using System;
+using PommaLabs.Thrower;
 using UnderTheBrand.Domain.Core.Base;
 using UnderTheBrand.Domain.Core.Values;
 
@@ -10,8 +11,11 @@ namespace UnderTheBrand.Domain.Core.Entities
 
         public Person(PersonalName personalName, Age age): base(Guid.NewGuid())
         {
-            PersonalName = personalName ?? throw new ArgumentNullException(nameof(personalName));
-            Age = age ?? throw new ArgumentNullException(nameof(age));
+            Raise.ArgumentNullException.IfIsNull(personalName, nameof(personalName));
+            Raise.ArgumentNullException.IfIsNull(age, nameof(age));
+
+            Age = age;
+            PersonalName = personalName;
         }
 
         public PersonalName PersonalName { get; set; }

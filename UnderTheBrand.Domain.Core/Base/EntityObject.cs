@@ -1,4 +1,5 @@
 ﻿using System;
+using PommaLabs.Thrower;
 using UnderTheBrand.Domain.Core.Interfaces.Base;
 
 namespace UnderTheBrand.Domain.Core.Base
@@ -12,6 +13,7 @@ namespace UnderTheBrand.Domain.Core.Base
 
         public EntityObject(Guid guid)
         {
+            Raise.ArgumentNullException.IfIsNull(guid, nameof(guid));
             Id = guid;
         }
 
