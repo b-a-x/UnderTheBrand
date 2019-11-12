@@ -19,7 +19,7 @@ namespace UnderTheBrand.Domain.Core.Values
 
         public Name FirstName { get; }
         public Name LastName { get; }
-        public string FullName => $"{FirstName} {LastName}";
+        public string FullName => $"{FirstName.Value} {LastName.Value}";
 
         public override bool Equals(object obj)
         {

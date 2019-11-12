@@ -1,9 +1,10 @@
 ﻿using System;
 using UnderTheBrand.Domain.Core.Base;
+using UnderTheBrand.Domain.Core.Interfaces.Base;
 
 namespace UnderTheBrand.Domain.Core.Values
 {
-    public class Age : ValueObject
+    public class Age : ValueObject, IValueObjectValidation<int>
     {
         private const string ErrorValidate = nameof(Age) + Validate;
 
@@ -17,7 +18,7 @@ namespace UnderTheBrand.Domain.Core.Values
 
         public int Value { get; }
 
-        public static bool IsValid(int value)
+        public bool IsValid(int value)
         {
             return 10 <= value && value <= 120;
         }

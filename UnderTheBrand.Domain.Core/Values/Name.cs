@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using UnderTheBrand.Domain.Core.Base;
+using UnderTheBrand.Domain.Core.Interfaces.Base;
 
 namespace UnderTheBrand.Domain.Core.Values
 {
     /// <summary>
     /// Имя
     /// </summary>
-    public class Name : ValueObject
+    public class Name : ValueObject, IValueObjectValidation<string>
     {
         private static readonly Regex ValidationRegex = new Regex(
             @"^[\p{L}\p{M}\p{N}]{1,100}\z",
@@ -25,7 +26,7 @@ namespace UnderTheBrand.Domain.Core.Values
 
         public string Value { get; }
 
-        public static bool IsValid(string value)
+        public bool IsValid(string value)
         {
             return !string.IsNullOrWhiteSpace(value) && ValidationRegex.IsMatch(value);
         }
