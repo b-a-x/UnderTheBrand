@@ -16,3 +16,4 @@
 /UnderTheBrand.Presentation.Server/bin
 /UnderTheBrand.Presentation.Server/Logs
 /UnderTheBrand.Presentation.Server/Database_UnderTheBrand.db
+/UnderTheBrand.Infrastructure.DTO/obj
