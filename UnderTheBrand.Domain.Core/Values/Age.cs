@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnderTheBrand.Domain.Core.Base;
 using UnderTheBrand.Domain.Core.Interfaces.Base;
 
@@ -23,14 +24,9 @@ namespace UnderTheBrand.Domain.Core.Values
             return 10 <= value && value <= 120;
         }
 
-        public override bool Equals(object obj)
+        protected override IEnumerable<object> GetEqualityComponents()
         {
-            return obj is Age other && Value == other.Value;
-        }
-
-        public override int GetHashCode()
-        {
-            return Value.GetHashCode();
+            yield return Value;
         }
     }
 }

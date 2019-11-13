@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnderTheBrand.Domain.Core.Base;
 using UnderTheBrand.Domain.Core.Interfaces.Base;
@@ -31,15 +32,9 @@ namespace UnderTheBrand.Domain.Core.Values
             return !string.IsNullOrWhiteSpace(value) && ValidationRegex.IsMatch(value);
         }
 
-        public override bool Equals(object obj)
+        protected override IEnumerable<object> GetEqualityComponents()
         {
-            return obj is Name other &&
-                   StringComparer.Ordinal.Equals(Value, other.Value);
-        }
-
-        public override int GetHashCode()
-        {
-            return StringComparer.Ordinal.GetHashCode(Value);
+            yield return Value;
         }
     }
 }

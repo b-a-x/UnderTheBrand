@@ -18,24 +18,15 @@ namespace UnderTheBrand.Domain.Core.Values
         }
 
         public Name FirstName { get; }
+
         public Name LastName { get; }
+        
         public string FullName => $"{FirstName.Value} {LastName.Value}";
 
-        public override bool Equals(object obj)
+        protected override IEnumerable<object> GetEqualityComponents()
         {
-            return obj is PersonalName personalName &&
-                   EqualityComparer<Name>.Default.Equals(FirstName, personalName.FirstName) &&
-                   EqualityComparer<Name>.Default.Equals(LastName, personalName.LastName);
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(FirstName, LastName);
-        }
-
-        public override string ToString()
-        {
-            return FullName;
+            yield return FirstName;
+            yield return LastName;
         }
     }
 }
