@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnderTheBrand.Domain.Core.Base;
-using UnderTheBrand.Domain.Core.Interfaces.Base;
 
 namespace UnderTheBrand.Domain.Core.Values
 {
     /// <summary>
     /// Имя
     /// </summary>
-    public class Name : ValueObject, IValueObjectValidation<string>
+    public class Name : ValueObject
     {
         private static readonly Regex ValidationRegex = new Regex(
             @"^[\p{L}\p{M}\p{N}]{1,100}\z",
@@ -19,17 +17,26 @@ namespace UnderTheBrand.Domain.Core.Values
 
         protected Name() { }
 
-        public Name(string value)
+        private Name(string value)
         {
-            if (!IsValid(value)) throw new ArgumentException(ErrorValidate);
             Value = value;
         }
 
         public string Value { get; }
 
-        public bool IsValid(string value)
+        public static Result<Name> Create(string input)
         {
-            return !string.IsNullOrWhiteSpace(value) && ValidationRegex.IsMatch(value);
+            if (string.IsNullOrWhiteSpace(input))
+                return Result.Fail<Name>("Name can't be empty");
+
+            input = input.Trim();
+            if (input.Length > 256)
+                return Result.Fail<Name>("Name is too long");
+
+            if (!ValidationRegex.IsMatch(input))
+                return Result.Fail<Name>("Name is invalid");
+
+            return Result.Ok(new Name(input));
         }
 
         protected override IEnumerable<object> GetEqualityComponents()

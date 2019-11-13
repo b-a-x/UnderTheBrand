@@ -9,4 +9,12 @@
     <Folder Include="Request\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnderTheBrand.Domain.Core\UnderTheBrand.Domain.Core.csproj" />
+  </ItemGroup>
+
 </Project>

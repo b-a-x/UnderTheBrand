@@ -8,8 +8,9 @@ using UnderTheBrand.Presentation.Server.Services.Interfaces;
 
 namespace UnderTheBrand.Presentation.Server.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
-    public class BaseController : Controller, IBaseController
+    public class BaseController : ControllerBase, IBaseController
     {
         private readonly IBaseService _service;
         private readonly ILogger _logger;

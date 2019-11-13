@@ -1,9 +1,13 @@
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UnderTheBrand.Domain.Core.Values;
 using UnderTheBrand.Infrastructure.DAL.Context;
 using UnderTheBrand.Presentation.Server.Extensions;
 
@@ -25,7 +29,12 @@ namespace UnderTheBrand.Presentation.Server
             services.AddDbContext<UnderTheBrandContext>(options =>
                 options.UseSqlite("Filename=Database_UnderTheBrand.db"));
 
-            services.AddControllers();
+            services.AddControllers()
+                .ConfigureApiBehaviorOptions(options =>
+                {
+                    options.InvalidModelStateResponseFactory = ModelStateValidator.ValidateModelState;
+                });
+
             services.AddMemoryCache();
             services.AddInjection();
         }
@@ -38,13 +47,29 @@ namespace UnderTheBrand.Presentation.Server
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+        }
+    }
+
+    public class ModelStateValidator
+    {
+        public static IActionResult ValidateModelState(ActionContext context)
+        {
+            (string fieldName, ModelStateEntry entry) = context.ModelState
+                .First(x => x.Value.Errors.Count > 0);
+            string errorSerialized = entry.Errors.First().ErrorMessage;
+
+            Error error = Error.Deserialize(errorSerialized);
+            //Envelope envelope = Envelope.Error(error, fieldName);
+            var result = new BadRequestObjectResult(error);
+
+            return result;
         }
     }
 }
