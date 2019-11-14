@@ -5,8 +5,6 @@ namespace UnderTheBrand.Domain.Core.Base
 {
     public abstract class ValueObject 
     {
-        protected const string Validate = " is not valid";
-
         protected ValueObject() { }
 
         protected abstract IEnumerable<object> GetEqualityComponents();

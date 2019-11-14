@@ -5,8 +5,6 @@ namespace UnderTheBrand.Domain.Core.Values
 {
     public class Age : ValueObject
     {
-        private const string ErrorValidate = nameof(Age) + Validate;
-
         protected Age() { }
 
         private Age(int value)

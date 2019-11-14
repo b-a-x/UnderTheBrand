@@ -13,8 +13,6 @@ namespace UnderTheBrand.Domain.Core.Values
             @"^[\p{L}\p{M}\p{N}]{1,100}\z",
             RegexOptions.Singleline | RegexOptions.Compiled);
 
-        private const string ErrorValidate = nameof(Name) + Validate;
-
         protected Name() { }
 
         private Name(string value)
