@@ -28,7 +28,7 @@ namespace UnderTheBrand.Presentation.Server.Controllers
             {
                 LogMethodBegin();
                 Result<Name> name = Name.Create("Ilia");
-                _provider.Create(new Person(new PersonalName(name.Value, name.Value), new Age(28)));
+                _provider.Create(new Person(new PersonalName(name.Value, name.Value), Age.Create(28).Value));
                 IReadOnlyCollection<Person> persons = _provider.Read();
 
                 LogMethodEnd(persons);

@@ -18,3 +18,5 @@
 /UnderTheBrand.Presentation.Server/Database_UnderTheBrand.db
 /UnderTheBrand.Infrastructure.DTO/obj
 /UnderTheBrand.Infrastructure.DTO/bin/Debug/netstandard2.1
+/UnderTheBrand.Domain.Core.Tests/bin/Debug
+/UnderTheBrand.Domain.Core.Tests/obj
