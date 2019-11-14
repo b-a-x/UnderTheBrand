@@ -75,6 +75,7 @@ namespace UnderTheBrand.Domain.Core.Values
                 return _value;
             }
             [param: AllowNull]
+
             private set => _value = value;
         }
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnderTheBrand.Domain.Core.Interfaces.Base;
+using UnderTheBrand.Domain.Core.Base;
 
 namespace UnderTheBrand.Domain.Interfaces.Providers
 {
@@ -8,7 +8,7 @@ namespace UnderTheBrand.Domain.Interfaces.Providers
     /// Базовый интерфей CRUD
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IEntityObjectProvider<T> where T : IEntityObject
+    public interface IEntityObjectProvider<T> where T : Entity
     {
         /// <summary>
         /// Создать

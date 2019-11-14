@@ -4,6 +4,11 @@ namespace UnderTheBrand.Domain.Core.Helpers
 {
     public static class Errors
     {
+        public static class Age
+        {
+            public static Error IsInvalid(int age) =>
+                new Error("age.is.invalid", $"Age '{age}' is invalid");
+        }
         public static class Person
         {
             public static Error NameIsTaken(string name) => 

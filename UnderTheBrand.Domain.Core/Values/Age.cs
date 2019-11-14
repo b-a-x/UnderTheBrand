@@ -16,12 +16,12 @@ namespace UnderTheBrand.Domain.Core.Values
 
         public int Value { get; }
 
-        public static Result<Age> Create(int input)
+        public static Result<Age> Create(int value)
         {
-            if (10 <= input && input <= 120)
+            if (10 <= value && value <= 120)
                 return Result.Fail<Age>("Age is invalid");
 
-            return Result.Ok(new Age(input));
+            return Result.Ok(new Age(value));
         }
 
         protected override IEnumerable<object> GetEqualityComponents()

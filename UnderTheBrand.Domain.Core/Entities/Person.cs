@@ -5,7 +5,7 @@ using UnderTheBrand.Domain.Core.Values;
 
 namespace UnderTheBrand.Domain.Core.Entities
 {
-    public class Person : EntityObject
+    public class Person : Entity
     {
         protected Person() { }
 

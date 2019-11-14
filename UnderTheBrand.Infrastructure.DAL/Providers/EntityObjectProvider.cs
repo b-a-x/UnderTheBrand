@@ -9,7 +9,7 @@ using UnderTheBrand.Infrastructure.DAL.Context;
 
 namespace UnderTheBrand.Infrastructure.DAL.Providers
 {
-    public class EntityObjectProvider<T> : IEntityObjectProvider<T> where T : EntityObject
+    public class EntityObjectProvider<T> : IEntityObjectProvider<T> where T : Entity
     {
         protected readonly UnderTheBrandContext _context;
         protected EntityObjectProvider() { }
