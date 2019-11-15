@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using UnderTheBrand.Domain.Core.Entities;
 using UnderTheBrand.Domain.Core.Values;
-using UnderTheBrand.Domain.Interfaces.Providers;
+using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Infrastructure.DTO.Entities;
 
 namespace UnderTheBrand.Presentation.Server.Controllers
@@ -13,12 +13,12 @@ namespace UnderTheBrand.Presentation.Server.Controllers
     [Route("api/[controller]")]
     public class TestController : BaseController
     {
-        private readonly IPersonProvider _provider;
+        private readonly IPersonRepository _repository;
 
         public TestController(ILoggerFactory logger,
-                              IPersonProvider provider) : base(logger)
+            IPersonRepository repository) : base(logger)
         {
-            _provider = provider;
+            _repository = repository;
         }
 
         [HttpGet(nameof(Get))]
@@ -28,8 +28,8 @@ namespace UnderTheBrand.Presentation.Server.Controllers
             {
                 LogMethodBegin();
                 Result<Name> name = Name.Create("Ilia");
-                _provider.Create(new Person(new PersonalName(name.Value, name.Value), Age.Create(28).Value));
-                IReadOnlyCollection<Person> persons = _provider.Read();
+                _repository.Create(new Person(new PersonalName(name.Value, name.Value), Age.Create(28).Value));
+                IReadOnlyCollection<Person> persons = _repository.Read();
 
                 LogMethodEnd(persons);
 

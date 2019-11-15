@@ -4,17 +4,17 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PommaLabs.Thrower;
 using UnderTheBrand.Domain.Core.Base;
-using UnderTheBrand.Domain.Interfaces.Providers;
+using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Infrastructure.DAL.Context;
 
-namespace UnderTheBrand.Infrastructure.DAL.Providers
+namespace UnderTheBrand.Infrastructure.DAL.Repositories
 {
-    public class EntityObjectProvider<T> : IEntityObjectProvider<T> where T : Entity
+    public class EntityRepository<T> : IEntityRepository<T> where T : Entity
     {
         protected readonly UnderTheBrandContext _context;
-        protected EntityObjectProvider() { }
+        protected EntityRepository() { }
 
-        public EntityObjectProvider(UnderTheBrandContext context)
+        public EntityRepository(UnderTheBrandContext context)
         {
             Raise.ArgumentNullException.IfIsNull(context, nameof(context));
             

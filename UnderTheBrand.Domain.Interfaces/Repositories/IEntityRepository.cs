@@ -2,13 +2,13 @@
 using System.Threading.Tasks;
 using UnderTheBrand.Domain.Core.Base;
 
-namespace UnderTheBrand.Domain.Interfaces.Providers
+namespace UnderTheBrand.Domain.Interfaces.Repositories
 {
     /// <summary>
     /// Базовый интерфей CRUD
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IEntityObjectProvider<T> where T : Entity
+    public interface IEntityRepository<T> where T : Entity
     {
         /// <summary>
         /// Создать

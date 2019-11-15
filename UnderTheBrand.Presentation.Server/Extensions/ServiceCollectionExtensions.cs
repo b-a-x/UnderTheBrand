@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using UnderTheBrand.Domain.Interfaces.Providers;
-using UnderTheBrand.Infrastructure.DAL.Providers;
+using UnderTheBrand.Domain.Interfaces.Repositories;
+using UnderTheBrand.Infrastructure.DAL.Repositories;
 using UnderTheBrand.Presentation.Server.Services;
 using UnderTheBrand.Presentation.Server.Services.Interfaces;
 
@@ -21,7 +21,7 @@ namespace UnderTheBrand.Presentation.Server.Extensions
 
         private static void AddScoped(IServiceCollection services)
         {
-            services.AddScoped<IPersonProvider, PersonProvider>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IBaseService, BaseService>();
         }
 

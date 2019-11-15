@@ -3,16 +3,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using UnderTheBrand.Domain.Core.Entities;
-using UnderTheBrand.Domain.Interfaces.Providers;
+using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Infrastructure.DAL.Context;
 
-namespace UnderTheBrand.Infrastructure.DAL.Providers
+namespace UnderTheBrand.Infrastructure.DAL.Repositories
 {
-    public class PersonProvider : EntityObjectProvider<Person>, IPersonProvider
+    public class PersonRepository : EntityRepository<Person>, IPersonRepository
     {
-        protected PersonProvider() { }
+        protected PersonRepository() { }
 
-        public PersonProvider(UnderTheBrandContext context) : base(context)
+        public PersonRepository(UnderTheBrandContext context) : base(context)
         {
         }
 
