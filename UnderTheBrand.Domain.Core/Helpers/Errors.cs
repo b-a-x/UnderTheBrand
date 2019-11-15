@@ -6,7 +6,7 @@ namespace UnderTheBrand.Domain.Core.Helpers
     {
         public static class Age
         {
-            public static Error IsInvalid(int age) =>
+            public static Error IsInvalid(long age) =>
                 new Error("age.is.invalid", $"Age '{age}' is invalid");
         }
         public static class Person
