@@ -6,7 +6,7 @@ using UnderTheBrand.Domain.Core.Base;
 namespace UnderTheBrand.Domain.Core.Tests.Base
 {
     [TestClass]
-    public class EntityTest
+    public class EntityTests
     {
         [TestMethod]
         public void Entity_create_empty_constructor()
