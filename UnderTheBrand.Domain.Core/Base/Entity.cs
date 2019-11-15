@@ -10,9 +10,10 @@ namespace UnderTheBrand.Domain.Core.Base
     {
         protected Entity() { }
 
-        public Entity(Guid guid)
+        protected Entity(Guid guid)
         {
             Raise.ArgumentNullException.IfIsNull(guid, nameof(guid));
+            
             Id = guid;
         }
 
