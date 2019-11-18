@@ -24,22 +24,11 @@ namespace UnderTheBrand.Presentation.Server.Controllers
         [HttpGet(nameof(Get))]
         public IActionResult Get()
         {
-            try
-            {
-                LogMethodBegin();
-                Result<Name> name = Name.Create("Ilia");
-                _repository.Create(new Person(new PersonalName(name.Value, name.Value), Age.Create(28).Value));
-                IReadOnlyCollection<Person> persons = _repository.Read();
-
-                LogMethodEnd(persons);
-
-                return Ok(persons);
-            }
-            catch (Exception e)
-            {
-                LogMethodError(e);
-                throw;
-            }
+            Result<Name> name = Name.Create("Ilia");
+            _repository.Create(new Person(new PersonalName(name.Value, name.Value), Age.Create(28).Value));
+            IReadOnlyCollection<Person> persons = _repository.Read();
+            
+            return Ok(persons);
         }
 
         [HttpPost(nameof(UpdatePerson))]

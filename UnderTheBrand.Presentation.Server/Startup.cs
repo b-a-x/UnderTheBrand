@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using UnderTheBrand.Domain.Core.Values;
 using UnderTheBrand.Infrastructure.DAL.Context;
 using UnderTheBrand.Presentation.Server.Extensions;
+using UnderTheBrand.Presentation.Server.Middlewares;
 
 namespace UnderTheBrand.Presentation.Server
 {
@@ -48,7 +49,7 @@ namespace UnderTheBrand.Presentation.Server
             }
 
             //app.UseHttpsRedirection();
-
+            app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {

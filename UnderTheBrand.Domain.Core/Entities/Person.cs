@@ -24,7 +24,7 @@ namespace UnderTheBrand.Domain.Core.Entities
 
         public Age Age { get; set; }
 
-        private List<CityInPerson> _cities;
+        /*private List<CityInPerson> _cities;
 
         public IReadOnlyCollection<City> Cities =>
             _cities
@@ -34,6 +34,6 @@ namespace UnderTheBrand.Domain.Core.Entities
         public void AddCity(City city)
         {
             _cities.Add(new CityInPerson(city, this));
-        }
+        }*/
     }
 }
