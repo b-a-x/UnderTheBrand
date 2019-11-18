@@ -10,7 +10,7 @@ namespace UnderTheBrand.Presentation.Server.Middlewares
 {
     public class ErrorHandlingMiddleware
     {
-        private readonly RequestDelegate _next;
+        /*private readonly RequestDelegate _next;
         private readonly ILogger<ErrorHandlingMiddleware> _logger;
 
         public ErrorHandlingMiddleware(RequestDelegate next, ILogger<ErrorHandlingMiddleware> logger)
@@ -33,7 +33,7 @@ namespace UnderTheBrand.Presentation.Server.Middlewares
                 await HandleExceptionAsync(context, ex);
             }
         }
-        /*
+        
         private async Task<string> FormatRequest(HttpRequest request)
         {
             byte[] buffer = new byte[Convert.ToInt32(request.ContentLength)];
@@ -42,7 +42,7 @@ namespace UnderTheBrand.Presentation.Server.Middlewares
             
             return $"{request.Scheme} {request.Host}{request.Path} {request.QueryString}";
         }
-        */
+        
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             if (exception is AggregateException aex && aex.InnerExceptions?.Count > 0)
@@ -51,7 +51,8 @@ namespace UnderTheBrand.Presentation.Server.Middlewares
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             _logger.LogError(exception, nameof(HttpStatusCode.InternalServerError));
 
-            return context.Response.WriteAsync(JsonConvert.SerializeObject(new TempError(exception)));
+            return context.Response.WriteAsync(JsonConvert.SerializeObject(new ApiError(exception)));
         }
+        */
     }
 }
