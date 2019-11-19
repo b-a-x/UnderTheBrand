@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using PommaLabs.Thrower;
 using UnderTheBrand.Domain.Core.Base;
-using UnderTheBrand.Domain.Core.Values;
+using UnderTheBrand.Domain.ValueObject.Values;
 
-namespace UnderTheBrand.Domain.Core.Entities
+namespace UnderTheBrand.Domain.Business.Entities
 {
     public class Person : Entity
     {

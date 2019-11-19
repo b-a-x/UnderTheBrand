@@ -1,6 +1,6 @@
-﻿using UnderTheBrand.Domain.Core.Values;
+﻿using UnderTheBrand.Domain.ValueObject.Values;
 
-namespace UnderTheBrand.Domain.Core.Helpers
+namespace UnderTheBrand.Domain.ValueObject.Helpers
 {
     public static class Errors
     {

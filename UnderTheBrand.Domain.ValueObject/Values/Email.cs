@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using UnderTheBrand.Domain.Core.Base;
 
-namespace UnderTheBrand.Domain.Core.Values
+
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
-    public class Email : ValueObject
+    public class Email : Core.Base.ValueObject
     {
         protected Email() { }
 

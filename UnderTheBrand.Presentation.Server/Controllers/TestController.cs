@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using UnderTheBrand.Domain.Core.Entities;
-using UnderTheBrand.Domain.Core.Values;
+using UnderTheBrand.Domain.Business.Entities;
 using UnderTheBrand.Domain.Interfaces.Repositories;
+using UnderTheBrand.Domain.ValueObject.Values;
 using UnderTheBrand.Infrastructure.DTO.Entities;
 
 namespace UnderTheBrand.Presentation.Server.Controllers

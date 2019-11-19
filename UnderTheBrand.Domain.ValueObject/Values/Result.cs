@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using UnderTheBrand.Domain.Core.Base;
 
-namespace UnderTheBrand.Domain.Core.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
-    public class Result : ValueObject
+    public class Result : Core.Base.ValueObject
     {
         public bool Success { get; private set; }
         public Error Error { get; private set; }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using UnderTheBrand.Domain.Core.Entities;
-using UnderTheBrand.Domain.Core.Values;
+using UnderTheBrand.Domain.Business.Entities;
+using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Infrastructure.DAL.Configurations
 {

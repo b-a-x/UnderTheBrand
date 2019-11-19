@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UnderTheBrand.Domain.Core.Helpers;
-using UnderTheBrand.Domain.Core.Values;
+using UnderTheBrand.Domain.ValueObject.Helpers;
+using UnderTheBrand.Domain.ValueObject.Values;
 
-namespace UnderTheBrand.Domain.Core.Tests.Helpers
+namespace UnderTheBrand.Domain.ValueObject.Tests.Helpers
 {
     [TestClass]
     public class ErrorsTests

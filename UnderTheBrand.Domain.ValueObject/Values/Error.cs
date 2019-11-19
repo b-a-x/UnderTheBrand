@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnderTheBrand.Domain.Core.Base;
 
-namespace UnderTheBrand.Domain.Core.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
-    public sealed class Error : ValueObject
+    public sealed class Error : Core.Base.ValueObject
     {
         private const string Separator = "||";
 

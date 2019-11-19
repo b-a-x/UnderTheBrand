@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using UnderTheBrand.Domain.Core.Values;
+using UnderTheBrand.Domain.ValueObject.Values;
 using UnderTheBrand.Infrastructure.DAL.Context;
 using UnderTheBrand.Presentation.Server.Extensions;
 using UnderTheBrand.Presentation.Server.Middlewares;

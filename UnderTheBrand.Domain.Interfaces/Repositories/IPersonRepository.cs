@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnderTheBrand.Domain.Core.Entities;
+using UnderTheBrand.Domain.Business.Entities;
 
 namespace UnderTheBrand.Domain.Interfaces.Repositories
 {

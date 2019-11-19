@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using UnderTheBrand.Domain.ValueObject.ValidationAttributes;
 using UnderTheBrand.Infrastructure.DTO.Base;
-using UnderTheBrand.Infrastructure.DTO.ValidationAttributes;
 
 namespace UnderTheBrand.Infrastructure.DTO.Entities
 {

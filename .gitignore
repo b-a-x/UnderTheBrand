@@ -20,3 +20,11 @@
 /UnderTheBrand.Infrastructure.DTO/bin/Debug/netstandard2.1
 /UnderTheBrand.Domain.Core.Tests/bin/Debug
 /UnderTheBrand.Domain.Core.Tests/obj
+/UnderTheBrand.Domain.Business/bin
+/UnderTheBrand.Domain.Business/obj
+/UnderTheBrand.Domain.Core.Tests/bin/Release/netcoreapp3.1
+/UnderTheBrand.Domain.ValueObject/bin
+/UnderTheBrand.Domain.ValueObject/obj
+/UnderTheBrand.Domain.ValueObject.Tests/bin
+/UnderTheBrand.Domain.ValueObject.Tests/obj
+/UnderTheBrand.Infrastructure.DTO/bin/Release/netstandard2.1

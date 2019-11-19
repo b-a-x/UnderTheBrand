@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnderTheBrand.Domain.Core.Base;
 
-namespace UnderTheBrand.Domain.Core.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
     /// <summary>
     /// Личное имя
     /// </summary>
-    public class PersonalName : ValueObject
+    public class PersonalName : Core.Base.ValueObject
     {
         protected PersonalName() { }
 

@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnderTheBrand.Domain.Core\UnderTheBrand.Domain.Core.csproj" />
+    <ProjectReference Include="..\UnderTheBrand.Domain.ValueObject\UnderTheBrand.Domain.ValueObject.csproj" />
   </ItemGroup>
 
 </Project>

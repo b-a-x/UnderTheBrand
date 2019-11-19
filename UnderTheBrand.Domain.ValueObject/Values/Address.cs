@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using UnderTheBrand.Domain.Core.Base;
 
-namespace UnderTheBrand.Domain.Core.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
-    public  class Address : ValueObject
+    public  class Address : Core.Base.ValueObject
     {
         protected Address() { }
 

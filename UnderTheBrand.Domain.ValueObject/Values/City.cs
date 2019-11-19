@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using UnderTheBrand.Domain.Core.Base;
 
-namespace UnderTheBrand.Domain.Core.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
-    public sealed class City : ValueObject
+    public sealed class City : Core.Base.ValueObject
     {
         public string Name { get; }
         public bool IsEnabled { get; }

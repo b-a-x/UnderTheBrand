@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using UnderTheBrand.Domain.Core.Base;
 
-namespace UnderTheBrand.Domain.Core.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
     /// <summary>
     /// Имя
     /// </summary>
-    public class Name : ValueObject
+    public class Name : Core.Base.ValueObject
     {
         private static readonly Regex ValidationRegex = new Regex(
             @"^[\p{L}\p{M}\p{N}]{1,100}\z",
