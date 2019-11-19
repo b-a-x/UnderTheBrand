@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using UnderTheBrand.Domain.ValueObject.Values;
 using UnderTheBrand.Infrastructure.DAL.Context;
 using UnderTheBrand.Presentation.Server.Extensions;
+using UnderTheBrand.Presentation.Server.Filters;
 using UnderTheBrand.Presentation.Server.Middlewares;
 
 namespace UnderTheBrand.Presentation.Server
@@ -36,6 +37,11 @@ namespace UnderTheBrand.Presentation.Server
                     options.InvalidModelStateResponseFactory = ModelStateValidator.ValidateModelState;
                 });
 
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(ApiExceptionFilter));
+            });
+
             services.AddMemoryCache();
             services.AddInjection();
         }
@@ -49,7 +55,6 @@ namespace UnderTheBrand.Presentation.Server
             }
 
             //app.UseHttpsRedirection();
-            app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {

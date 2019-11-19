@@ -15,7 +15,7 @@ namespace UnderTheBrand.Domain.ValueObject.Values
 
         public static Result<Age> Create(int value)
         {
-            if (10 <= value && value <= 120)
+            if (18 > value && value > 120)
                 return Result.Fail<Age>("Age is invalid");
 
             return Result.Ok(new Age(value));

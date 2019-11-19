@@ -9,7 +9,6 @@ using UnderTheBrand.Infrastructure.DTO.Entities;
 
 namespace UnderTheBrand.Presentation.Server.Controllers
 {
-    //[Produces("application/json")]
     [Route("api/[controller]")]
     public class TestController : BaseController
     {
@@ -24,30 +23,30 @@ namespace UnderTheBrand.Presentation.Server.Controllers
         [HttpGet(nameof(Get))]
         public IActionResult Get()
         {
+            LogMethodBegin();
+
             Result<Name> name = Name.Create("Ilia");
-            _repository.Create(new Person(new PersonalName(name.Value, name.Value), Age.Create(28).Value));
-            IReadOnlyCollection<Person> persons = _repository.Read();
+            Result<Age> age = Age.Create(28);
+            PersonalName personalName = new PersonalName(name.Value, name.Value);
+            Person person = new Person(personalName, age.Value);
             
+            _repository.Create(person);
+
+            IReadOnlyCollection<Person> persons = _repository.Read();
+
+            LogMethodEnd(persons);
+
             return Ok(persons);
         }
 
         [HttpPost(nameof(UpdatePerson))]
         public IActionResult UpdatePerson([FromBody] PersonDTO dto)
         {
-            try
-            {
-                LogMethodBegin();
-                
-                
-                LogMethodEnd(dto);
+            LogMethodBegin(dto);
+            
+            LogMethodEnd(dto);
 
-                return Ok(dto);
-            }
-            catch (Exception e)
-            {
-                LogMethodError(e);
-                throw;
-            }
+            return Ok(dto);
         }
     }
 }

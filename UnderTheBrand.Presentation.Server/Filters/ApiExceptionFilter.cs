@@ -11,8 +11,8 @@ namespace UnderTheBrand.Presentation.Server.Filters
     public class ApiExceptionFilter : IExceptionFilter
     {
         private readonly IWebHostEnvironment _environment;
-        private readonly ILogger<ApiExceptionFilter> _logger; 
-         
+        private readonly ILogger<ApiExceptionFilter> _logger;
+
         protected ApiExceptionFilter() { }
 
         public ApiExceptionFilter(IWebHostEnvironment env, ILogger<ApiExceptionFilter> logger)
@@ -20,6 +20,7 @@ namespace UnderTheBrand.Presentation.Server.Filters
             _environment = env;
             _logger = logger;
         }
+
         public void OnException(ExceptionContext context)
         {
             _logger.LogError(context.Exception, nameof(ApiExceptionFilter));

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using UnderTheBrand.Presentation.Server.Controllers.Interfaces;
 using UnderTheBrand.Presentation.Server.Services.Interfaces;
@@ -19,6 +17,7 @@ namespace UnderTheBrand.Presentation.Server.Controllers
 
         protected BaseController(ILoggerFactory logger)
         {
+            // TODO: Нужно логировать запросы в middleware
             _logger = logger.CreateLogger(GetType());
         }
 
@@ -28,33 +27,16 @@ namespace UnderTheBrand.Presentation.Server.Controllers
             _service = service;
         }
 
-        /// <summary>
-        /// Логирует ошибки модели состояния
-        /// </summary>
-        protected void LogModelStateErrors()
-        {
-            foreach (var item in ModelState.Values)
-            {
-                foreach (ModelError error in item.Errors)
-                {
-                    _logger.LogDebug("ModelState: {0}", error.ErrorMessage);
-                }
-            }
-        }
-
+        // TODO: Нужно логировать запросы в middleware
         protected void LogMethodBegin(object arg = null, [CallerMemberName] string methodName = "")
         {
             _logger.LogDebug($"Call {methodName}. Argument: {arg}. RequestId: {ControllerContext.HttpContext.TraceIdentifier}.");
         }
 
+        // TODO: Нужно логировать запросы в middleware
         protected void LogMethodEnd(object result = null, [CallerMemberName] string methodName = "")
         {
             _logger.LogDebug($"Call {methodName}. Result: {result}. RequestId: {ControllerContext.HttpContext.TraceIdentifier}.");
-        }
-
-        protected void LogMethodError(Exception ex, [CallerMemberName] string methodName = "")
-        {
-            _logger.LogError(ex, $"Call {methodName}. RequestId: {ControllerContext.HttpContext.TraceIdentifier}. Exception: ");
         }
     }
 }
