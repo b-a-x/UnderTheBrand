@@ -17,10 +17,16 @@ namespace UnderTheBrand.Domain.ValueObject.Helpers
         public static class General
         {
             public static Error NotFound(string entityName, string id) =>
-                new Error("record.not.found", $"'{entityName}' not found for Id '{id}'");
+                new Error("general.record.not.found", $"'{entityName}' not found for Id '{id}'");
 
             public static Error NotFound() =>
-                new Error("record.not.found", "Not found");
+                new Error("general.not.found", "Not found");
+
+            public static Error ValueIsInvalid() =>
+                new Error("general.value.is.invalid", "Value is invalid");
+
+            public static Error ValueIsEmpty(string value) =>
+                new Error("general.value.is.empty", $"'{value}' can't be empty");
         }
     }
 }

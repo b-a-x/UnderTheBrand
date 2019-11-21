@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnderTheBrand.Domain.ValueObject.Helpers;
 
 namespace UnderTheBrand.Domain.ValueObject.Values
 {
@@ -24,7 +25,7 @@ namespace UnderTheBrand.Domain.ValueObject.Values
         public static Result<Name> Create(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
-                return Result.Fail<Name>("Name can't be empty");
+                return Result.Fail<Name>(Errors.General.ValueIsEmpty(nameof(Name)));
 
             input = input.Trim();
             if (input.Length > 256)

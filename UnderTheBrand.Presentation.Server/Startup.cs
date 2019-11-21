@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UnderTheBrand.Domain.ValueObject.Helpers;
 using UnderTheBrand.Domain.ValueObject.Values;
 using UnderTheBrand.Infrastructure.DAL.Context;
 using UnderTheBrand.Presentation.Server.Extensions;
@@ -69,11 +70,13 @@ namespace UnderTheBrand.Presentation.Server
         {
             (string fieldName, ModelStateEntry entry) = context.ModelState
                 .First(x => x.Value.Errors.Count > 0);
+            
             string errorSerialized = entry.Errors.First().ErrorMessage;
 
             Error error = Error.Deserialize(errorSerialized);
-            //Envelope envelope = Envelope.Error(error, fieldName);
-            var result = new BadRequestObjectResult(error);
+
+            EnvelopeError envelope = EnvelopeError.Error(error, fieldName);
+            var result = new BadRequestObjectResult(envelope);
 
             return result;
         }

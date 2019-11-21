@@ -23,6 +23,12 @@ namespace UnderTheBrand.Domain.ValueObject.Values
             Error = new Error("",error);
         }
 
+        protected Result(bool success, Error error)
+        {
+            Success = success;
+            Error = error;
+        }
+
         public static Result Fail(string message)
         {
             return new Result(false, message);
@@ -31,6 +37,11 @@ namespace UnderTheBrand.Domain.ValueObject.Values
         public static Result<T> Fail<T>(string message)
         {
             return new Result<T>(default(T), false, message);
+        }
+
+        public static Result<T> Fail<T>(Error error)
+        {
+            return new Result<T>(default(T),false, error);
         }
 
         public static Result Ok()
@@ -79,6 +90,14 @@ namespace UnderTheBrand.Domain.ValueObject.Values
         }
 
         protected internal Result([AllowNull] T value, bool success, string error)
+            : base(success, error)
+        {
+            if (value != null && !Success) throw new ArgumentNullException();
+
+            Value = value;
+        }
+
+        protected internal Result([AllowNull] T value, bool success, Error error)
             : base(success, error)
         {
             if (value != null && !Success) throw new ArgumentNullException();

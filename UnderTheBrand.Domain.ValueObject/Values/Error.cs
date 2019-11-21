@@ -32,10 +32,10 @@ namespace UnderTheBrand.Domain.ValueObject.Values
                 new[] { Separator },
                 StringSplitOptions.RemoveEmptyEntries);
 
-           // if (data.Length <= 2)
-           //     throw new ArgumentNullException($"Invalid error serialization: '{serialized}'");
+            if (data.Length < 2)
+                throw new ArgumentNullException($"Invalid error serialization: '{serialized}'");
 
-            return new Error(data[0], data[0]);
+            return new Error(data[0], data[1]);
         }
     }
 }

@@ -1,31 +1,35 @@
 ﻿using System;
+using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.ValueObject.Helpers
 {
     public class Envelope<T>
     {
-        public T Result { get; }
-        public string ErrorMessage { get; }
-        public DateTime TimeGenerated { get; }
-
-        protected internal Envelope(T result, string errorMessage)
+        protected Envelope() { }
+        protected Envelope(T result)
         {
             Result = result;
-            ErrorMessage = errorMessage;
             TimeGenerated = DateTime.UtcNow;
         }
-    }
 
-    public class Envelope : Envelope<string>
-    {
-        protected Envelope(string errorMessage)
-            : base(string.Empty, errorMessage)
-        {
-        }
+        public T Result { get; }
+
+        public DateTime TimeGenerated { get; }
 
         public static Envelope<T> Ok<T>(T result)
         {
-            return new Envelope<T>(result, string.Empty);
+            return new Envelope<T>(result);
+        }
+    }
+
+    public sealed class Envelope : Envelope<string>
+    {
+        public string Message { get; }
+
+        private Envelope(string message)
+            : base(string.Empty)
+        {
+            Message = message;
         }
 
         public static Envelope Ok()
@@ -36,6 +40,22 @@ namespace UnderTheBrand.Domain.ValueObject.Helpers
         public static Envelope Error(string errorMessage)
         {
             return new Envelope(errorMessage);
+        }
+    }
+
+    public sealed class EnvelopeError : Envelope<Error>
+    {
+        public string InvalidField { get; }
+
+        private EnvelopeError(Error error, string invalidField)
+            : base(error)
+        {
+            InvalidField = invalidField;
+        }
+
+        public static EnvelopeError Error(Error error, string invalidField)
+        {
+            return new EnvelopeError(error, invalidField);
         }
     }
 }
