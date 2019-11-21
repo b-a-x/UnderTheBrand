@@ -18,6 +18,9 @@ namespace UnderTheBrand.Domain.ValueObject.Helpers
         {
             public static Error NotFound(string entityName, string id) =>
                 new Error("record.not.found", $"'{entityName}' not found for Id '{id}'");
+
+            public static Error NotFound() =>
+                new Error("record.not.found", "Not found");
         }
     }
 }
