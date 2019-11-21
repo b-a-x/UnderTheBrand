@@ -49,7 +49,7 @@ namespace UnderTheBrand.Domain.ValueObject.Tests.Helpers
                     if (x.ParameterType == typeof(string))
                         return string.Empty;
 
-                    if (x.ParameterType == typeof(long))
+                    if (x.ParameterType == typeof(int))
                         return 0;
 
                     throw new Exception();

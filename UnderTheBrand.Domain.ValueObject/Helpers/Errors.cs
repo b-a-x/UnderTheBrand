@@ -6,7 +6,7 @@ namespace UnderTheBrand.Domain.ValueObject.Helpers
     {
         public static class Age
         {
-            public static Error IsInvalid(long age) =>
+            public static Error IsInvalid(int age) =>
                 new Error("age.is.invalid", $"Age '{age}' is invalid");
         }
         public static class Person
@@ -16,7 +16,7 @@ namespace UnderTheBrand.Domain.ValueObject.Helpers
         }
         public static class General
         {
-            public static Error NotFound(string entityName, long id) =>
+            public static Error NotFound(string entityName, string id) =>
                 new Error("record.not.found", $"'{entityName}' not found for Id '{id}'");
         }
     }

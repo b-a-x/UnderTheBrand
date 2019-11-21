@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UnderTheBrand.Infrastructure.DTO
+namespace UnderTheBrand.Domain.ValueObject.Helpers
 {
     public class Envelope<T>
     {
