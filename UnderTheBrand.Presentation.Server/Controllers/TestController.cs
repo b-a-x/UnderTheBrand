@@ -40,7 +40,7 @@ namespace UnderTheBrand.Presentation.Server.Controllers
         }
 
         [HttpPost(nameof(UpdatePerson))]
-        public IActionResult UpdatePerson([FromBody] PersonDTO dto)
+        public IActionResult UpdatePerson([FromBody] PersonDto dto)
         {
             LogMethodBegin(dto);
             

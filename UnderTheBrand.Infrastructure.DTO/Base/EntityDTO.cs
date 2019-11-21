@@ -2,7 +2,7 @@
 
 namespace UnderTheBrand.Infrastructure.DTO.Base
 {
-    public class EntityDTO
+    public class EntityDto
     {
         public Guid Id { get; set; }
     }
