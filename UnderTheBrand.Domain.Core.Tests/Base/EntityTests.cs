@@ -24,7 +24,7 @@ namespace UnderTheBrand.Domain.Core.Tests.Base
         {
             // arrange
             ConstructorInfo constructor = typeof(Entity).GetConstructor(BindingFlags.NonPublic | BindingFlags.CreateInstance | BindingFlags.Instance,
-                null, types: new[] { typeof(Guid) }, null);
+                null, types: new[] { typeof(string) }, null);
 
             // act
             constructor.Invoke(new object[] {Guid.Empty});
