@@ -1,5 +1,4 @@
-﻿using System;
-using PommaLabs.Thrower;
+﻿using PommaLabs.Thrower;
 
 namespace UnderTheBrand.Domain.Core.Base
 {
@@ -10,19 +9,16 @@ namespace UnderTheBrand.Domain.Core.Base
     {
         protected Entity() { }
 
-        protected Entity(Guid guid)
+        protected Entity(string id)
         {
-            Raise.ArgumentNullException.IfIsNull(guid, nameof(guid));
-            
-            Id = guid;
+            Raise.ArgumentNullException.IfIsNull(id, nameof(id));
+            Id = id;
         }
 
         /// <summary>
         /// Индификатор
         /// </summary>
-        public Guid Id { get; }
-
-        protected virtual object Actual => this;
+        public string Id { get; }
 
         public override bool Equals(object obj)
         {
@@ -34,11 +30,8 @@ namespace UnderTheBrand.Domain.Core.Base
             if (ReferenceEquals(this, other))
                 return true;
 
-            if (Actual.GetType() != other.Actual.GetType())
+            if (string.IsNullOrEmpty(Id) || string.IsNullOrEmpty(other.Id))
                 return false;
-
-            //if (Id == 0 || other.Id == 0)
-            //    return false;
 
             return Id == other.Id;
         }
@@ -61,7 +54,7 @@ namespace UnderTheBrand.Domain.Core.Base
 
         public override int GetHashCode()
         {
-            return (Actual.GetType().ToString() + Id).GetHashCode();
+            return (GetType() + Id).GetHashCode();
         }
     }
 }

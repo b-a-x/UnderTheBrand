@@ -9,11 +9,10 @@ namespace UnderTheBrand.Domain.Business.Entities
     {
         protected CityInPerson() { }
 
-        public CityInPerson(City city, Person person) : base(Guid.NewGuid())
+        public CityInPerson(City city, Person person) : base(Guid.NewGuid().ToString())
         {
             Raise.ArgumentNullException.IfIsNull(city, nameof(city));
             Raise.ArgumentNullException.IfIsNull(person, nameof(person));
-
             City = city;
             Person = person;
         }

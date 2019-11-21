@@ -9,11 +9,10 @@ namespace UnderTheBrand.Domain.Business.Entities
     {
         protected Person() { }
 
-        public Person(PersonalName personalName, Age age) : base(Guid.NewGuid())
+        public Person(PersonalName personalName, Age age) : base(Guid.NewGuid().ToString())
         {
             Raise.ArgumentNullException.IfIsNull(personalName, nameof(personalName));
             Raise.ArgumentNullException.IfIsNull(age, nameof(age));
-
             Age = age;
             PersonalName = personalName;
         }
