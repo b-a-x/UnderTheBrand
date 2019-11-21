@@ -43,10 +43,16 @@ namespace UnderTheBrand.Presentation.Server.Controllers
         public IActionResult UpdatePerson([FromBody] PersonDto dto)
         {
             LogMethodBegin(dto);
-            
-            LogMethodEnd(dto);
 
-            return Ok(dto);
+            Result<Name> firstName = Name.Create(dto.FirstName);
+            Result<Name> lastName = Name.Create(dto.LastName);
+            Result<Age> age = Age.Create(dto.Age);
+            PersonalName personalName = new PersonalName(firstName.Value, lastName.Value);
+            Person person = new Person(personalName, age.Value);
+
+            LogMethodEnd(person);
+
+            return Ok(person);
         }
     }
 }
