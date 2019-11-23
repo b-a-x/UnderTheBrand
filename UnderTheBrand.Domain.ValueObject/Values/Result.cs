@@ -89,7 +89,7 @@ namespace UnderTheBrand.Domain.ValueObject.Values
             private set => _value = value;
         }
 
-        protected internal Result([AllowNull] T value, bool success, string error)
+        public Result([AllowNull] T value, bool success, string error)
             : base(success, error)
         {
             if (value != null && !Success) throw new ArgumentNullException();
@@ -97,7 +97,7 @@ namespace UnderTheBrand.Domain.ValueObject.Values
             Value = value;
         }
 
-        protected internal Result([AllowNull] T value, bool success, Error error)
+        public Result([AllowNull] T value, bool success, Error error)
             : base(success, error)
         {
             if (value != null && !Success) throw new ArgumentNullException();
