@@ -41,3 +41,6 @@
 /UnderTheBrand.Infrastructure.Mobile/bin
 /UnderTheBrand.Infrastructure.Mobile/obj
 /UnderTheBrand.Presentation/UnderTheBrand.Presentation.UWP/bin
+/UnderTheBrand.Infrastructure.DTO/bin/Debug/netstandard2.0
+/UnderTheBrand.Infrastructure.ViewModel/bin/Debug/netstandard2.0
+/UnderTheBrand.Infrastructure.ViewModel/obj

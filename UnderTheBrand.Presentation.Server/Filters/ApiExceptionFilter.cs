@@ -2,10 +2,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using UnderTheBrand.Domain.ValueObject.Values;
-using UnderTheBrand.Infrastructure.DTO;
 
 namespace UnderTheBrand.Presentation.Server.Filters
 {

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using UnderTheBrand.Infrastructure.DTO;
-
-namespace UnderTheBrand.Presentation.Server.Middlewares
+﻿namespace UnderTheBrand.Presentation.Server.Middlewares
 {
     public class ErrorHandlingMiddleware
     {

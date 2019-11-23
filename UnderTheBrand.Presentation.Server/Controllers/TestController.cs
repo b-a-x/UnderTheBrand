@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using UnderTheBrand.Domain.Entity.Entities;
 using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Domain.ValueObject.Values;
-using UnderTheBrand.Infrastructure.DTO.Entities;
+using UnderTheBrand.Infrastructure.ViewModel.Entities;
 
 namespace UnderTheBrand.Presentation.Server.Controllers
 {
@@ -39,13 +39,13 @@ namespace UnderTheBrand.Presentation.Server.Controllers
         }
 
         [HttpPost(nameof(UpdatePerson))]
-        public IActionResult UpdatePerson([FromBody] PersonDto dto)
+        public IActionResult UpdatePerson([FromBody] PersonVM vm)
         {
-            LogMethodBegin(dto);
+            LogMethodBegin(vm);
 
-            Result<Name> firstName = Name.Create(dto.FirstName);
-            Result<Name> lastName = Name.Create(dto.LastName);
-            Result<Age> age = Age.Create(dto.Age);
+            Result<Name> firstName = Name.Create(vm.FirstName);
+            Result<Name> lastName = Name.Create(vm.LastName);
+            Result<Age> age = Age.Create(vm.Age);
             PersonalName personalName = new PersonalName(firstName.Value, lastName.Value);
             Person person = new Person(personalName, age.Value);
 

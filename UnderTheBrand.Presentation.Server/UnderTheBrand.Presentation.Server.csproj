@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UnderTheBrand.Infrastructure.DAL\UnderTheBrand.Infrastructure.DAL.csproj" />
-    <ProjectReference Include="..\UnderTheBrand.Infrastructure.DTO\UnderTheBrand.Infrastructure.DTO.csproj" />
+    <ProjectReference Include="..\UnderTheBrand.Infrastructure.ViewModel\UnderTheBrand.Infrastructure.ViewModel.csproj" />
   </ItemGroup>
 
   <ItemGroup>

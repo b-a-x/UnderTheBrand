@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using UnderTheBrand.Domain.ValueObject.ValidationAttributes;
-using UnderTheBrand.Infrastructure.DTO.Base;
+using UnderTheBrand.Infrastructure.ViewModel.Base;
 
-namespace UnderTheBrand.Infrastructure.DTO.Entities
+namespace UnderTheBrand.Infrastructure.ViewModel.Entities
 {
-    public class PersonDto : EntityDto
+    public class PersonVM : EntityVM
     {
         [Required, Name]
         public string FirstName { get; set; }
