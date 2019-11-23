@@ -38,3 +38,6 @@
 /UnderTheBrand.Presentation/UnderTheBrand.Presentation.iOS/obj
 /UnderTheBrand.Presentation/UnderTheBrand.Presentation.UWP/bin/x86/Release
 /UnderTheBrand.Presentation/UnderTheBrand.Presentation.UWP/obj
+/UnderTheBrand.Infrastructure.Mobile/bin
+/UnderTheBrand.Infrastructure.Mobile/obj
+/UnderTheBrand.Presentation/UnderTheBrand.Presentation.UWP/bin

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -86,10 +86,10 @@
     <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UnderTheBrand.Presentation\UnderTheBrand.Presentation.csproj">
-      <Project>{4F47A168-9F49-4875-BA1D-A78F07297A43}</Project>
-      <Name>UnderTheBrand.Presentation</Name>
+    <ProjectReference Include="..\..\UnderTheBrand.Infrastructure.Mobile\UnderTheBrand.Infrastructure.Mobile.csproj">
+      <Project>{67B4CC11-5B73-4390-BF16-8E5D97436026}</Project>
+      <Name>UnderTheBrand.Infrastructure.Mobile</Name>
     </ProjectReference>
   </ItemGroup>
- <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
