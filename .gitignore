@@ -28,3 +28,5 @@
 /UnderTheBrand.Domain.ValueObject.Tests/bin
 /UnderTheBrand.Domain.ValueObject.Tests/obj
 /UnderTheBrand.Infrastructure.DTO/bin/Release/netstandard2.1
+/UnderTheBrand.Domain.Entity/bin
+/UnderTheBrand.Domain.Entity/obj

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using UnderTheBrand.Domain.Business.Entities;
+using UnderTheBrand.Domain.Entity.Entities;
 using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Infrastructure.DAL.Context;
 

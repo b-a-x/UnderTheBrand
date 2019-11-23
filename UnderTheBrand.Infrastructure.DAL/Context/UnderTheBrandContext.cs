@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using UnderTheBrand.Domain.Business.Entities;
+using UnderTheBrand.Domain.Entity.Entities;
 using UnderTheBrand.Infrastructure.DAL.Configurations;
 
 namespace UnderTheBrand.Infrastructure.DAL.Context

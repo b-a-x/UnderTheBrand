@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using UnderTheBrand.Domain.Business.Entities;
+using UnderTheBrand.Domain.Entity.Entities;
 using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Domain.ValueObject.Values;
 using UnderTheBrand.Infrastructure.DTO.Entities;

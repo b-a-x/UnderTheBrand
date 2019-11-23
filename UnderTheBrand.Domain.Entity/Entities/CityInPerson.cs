@@ -1,11 +1,10 @@
 ﻿using System;
 using PommaLabs.Thrower;
-using UnderTheBrand.Domain.Core.Base;
 using UnderTheBrand.Domain.ValueObject.Values;
 
-namespace UnderTheBrand.Domain.Business.Entities
+namespace UnderTheBrand.Domain.Entity.Entities
 {
-    public class CityInPerson : Entity
+    public class CityInPerson : Core.Base.Entity
     {
         protected CityInPerson() { }
 

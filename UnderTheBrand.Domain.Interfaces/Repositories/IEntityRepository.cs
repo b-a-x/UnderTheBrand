@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnderTheBrand.Domain.Core.Base;
 
 namespace UnderTheBrand.Domain.Interfaces.Repositories
 {
@@ -8,7 +7,7 @@ namespace UnderTheBrand.Domain.Interfaces.Repositories
     /// Базовый интерфей CRUD
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IEntityRepository<T> where T : Entity
+    public interface IEntityRepository<T> where T : Core.Base.Entity
     {
         /// <summary>
         /// Создать
