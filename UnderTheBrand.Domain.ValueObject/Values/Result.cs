@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace UnderTheBrand.Domain.ValueObject.Values
 {
@@ -84,12 +83,11 @@ namespace UnderTheBrand.Domain.ValueObject.Values
 
                 return _value;
             }
-            [param: AllowNull]
 
             private set => _value = value;
         }
 
-        public Result([AllowNull] T value, bool success, string error)
+        public Result(T value, bool success, string error)
             : base(success, error)
         {
             if (value != null && !Success) throw new ArgumentNullException();
@@ -97,7 +95,7 @@ namespace UnderTheBrand.Domain.ValueObject.Values
             Value = value;
         }
 
-        public Result([AllowNull] T value, bool success, Error error)
+        public Result(T value, bool success, Error error)
             : base(success, error)
         {
             if (value != null && !Success) throw new ArgumentNullException();
