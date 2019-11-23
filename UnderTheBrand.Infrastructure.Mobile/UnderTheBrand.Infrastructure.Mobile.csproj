@@ -10,6 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UnderTheBrand.Domain.Entity\UnderTheBrand.Domain.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="App.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
