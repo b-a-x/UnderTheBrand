@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using UnderTheBrand.Domain.ValueObject.Values;
 using UnderTheBrand.Infrastructure.DTO;
 
 namespace UnderTheBrand.Presentation.Server.Filters
@@ -25,14 +26,8 @@ namespace UnderTheBrand.Presentation.Server.Filters
         {
             _logger.LogError(context.Exception, nameof(ApiExceptionFilter));
 
-            var error = new ApiError();
-            if (_environment.IsDevelopment())
-                error.StackTrace = context.Exception.StackTrace;
-
-            error.Message = context.Exception.Message;
-            error.StatusCode = (int)HttpStatusCode.InternalServerError;
-
-            context.HttpContext.Response.StatusCode = error.StatusCode;
+            var error = new Error(HttpStatusCode.InternalServerError.ToString(), context.Exception.Message);
+            context.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             context.Result = new JsonResult(error);
         }
     }

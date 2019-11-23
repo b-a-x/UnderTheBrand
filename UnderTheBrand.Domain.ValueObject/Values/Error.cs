@@ -10,7 +10,7 @@ namespace UnderTheBrand.Domain.ValueObject.Values
         public string Code { get; }
         public string Message { get; }
 
-        internal Error(string code, string message)
+        public Error(string code, string message)
         {
             Code = code;
             Message = message;
