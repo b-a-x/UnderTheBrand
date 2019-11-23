@@ -9,7 +9,7 @@ using UnderTheBrand.Infrastructure.DAL.Context;
 
 namespace UnderTheBrand.Infrastructure.DAL.Repositories
 {
-    public class EntityRepository<T> : IEntityRepository<T> where T : Entity
+    public class EntityRepository<T> : IEntityRepository<T> where T : EntityObject
     {
         protected readonly UnderTheBrandContext _context;
         protected EntityRepository() { }

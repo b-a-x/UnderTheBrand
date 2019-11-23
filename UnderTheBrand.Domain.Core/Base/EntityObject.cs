@@ -5,11 +5,11 @@ namespace UnderTheBrand.Domain.Core.Base
     /// <summary>
     /// Базовый класс
     /// </summary>
-    public abstract class Entity 
+    public abstract class EntityObject 
     {
-        protected Entity() { }
+        protected EntityObject() { }
 
-        protected Entity(string id)
+        protected EntityObject(string id)
         {
             Raise.ArgumentNullException.IfIsNull(id, nameof(id));
             Id = id;
@@ -22,7 +22,7 @@ namespace UnderTheBrand.Domain.Core.Base
 
         public override bool Equals(object obj)
         {
-            var other = obj as Entity;
+            var other = obj as EntityObject;
 
             if (other is null)
                 return false;
@@ -36,7 +36,7 @@ namespace UnderTheBrand.Domain.Core.Base
             return Id == other.Id;
         }
 
-        public static bool operator ==(Entity a, Entity b)
+        public static bool operator ==(EntityObject a, EntityObject b)
         {
             if (a is null && b is null)
                 return true;
@@ -47,7 +47,7 @@ namespace UnderTheBrand.Domain.Core.Base
             return a.Equals(b);
         }
 
-        public static bool operator !=(Entity a, Entity b)
+        public static bool operator !=(EntityObject a, EntityObject b)
         {
             return !(a == b);
         }

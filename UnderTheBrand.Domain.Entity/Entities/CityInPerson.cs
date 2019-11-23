@@ -4,7 +4,7 @@ using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Entity.Entities
 {
-    public class CityInPerson : Core.Base.Entity
+    public class CityInPerson : Core.Base.EntityObject
     {
         protected CityInPerson() { }
 
