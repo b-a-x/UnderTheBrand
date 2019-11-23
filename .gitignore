@@ -30,3 +30,11 @@
 /UnderTheBrand.Infrastructure.DTO/bin/Release/netstandard2.1
 /UnderTheBrand.Domain.Entity/bin
 /UnderTheBrand.Domain.Entity/obj
+/UnderTheBrand.Presentation/UnderTheBrand.Presentation/obj
+/UnderTheBrand.Presentation/UnderTheBrand.Presentation/obj
+/UnderTheBrand.Presentation/UnderTheBrand.Presentation/bin/Debug/netstandard2.0
+/UnderTheBrand.Presentation/UnderTheBrand.Presentation.Android/bin/Debug
+/UnderTheBrand.Presentation/UnderTheBrand.Presentation.Android/obj
+/UnderTheBrand.Presentation/UnderTheBrand.Presentation.iOS/obj
+/UnderTheBrand.Presentation/UnderTheBrand.Presentation.UWP/bin/x86/Release
+/UnderTheBrand.Presentation/UnderTheBrand.Presentation.UWP/obj
