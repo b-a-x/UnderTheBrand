@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using UnderTheBrand.Infrastructure.Mobile.Models;
+using UnderTheBrand.Domain.Entity;
 using UnderTheBrand.Infrastructure.Mobile.Services;
 using Xamarin.Forms;
 
@@ -22,8 +22,8 @@ namespace UnderTheBrand.Infrastructure.Mobile.ViewModels
         private string _title = string.Empty;
         public string Title
         {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
+            get => _title;
+            set => SetProperty(ref _title, value);
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,

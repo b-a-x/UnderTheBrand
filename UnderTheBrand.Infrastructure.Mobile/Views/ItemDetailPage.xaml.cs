@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using UnderTheBrand.Infrastructure.Mobile.Models;
+using UnderTheBrand.Domain.Entity;
 using UnderTheBrand.Infrastructure.Mobile.ViewModels;
 using Xamarin.Forms;
 
@@ -10,13 +10,13 @@ namespace UnderTheBrand.Infrastructure.Mobile.Views
     [DesignTimeVisible(false)]
     public partial class ItemDetailPage : ContentPage
     {
-        ItemDetailViewModel viewModel;
+        private readonly ItemDetailViewModel _viewModel;
 
         public ItemDetailPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
 
-            BindingContext = this.viewModel = viewModel;
+            BindingContext = this._viewModel = viewModel;
         }
 
         public ItemDetailPage()
@@ -29,8 +29,8 @@ namespace UnderTheBrand.Infrastructure.Mobile.Views
                 Description = "This is an item description."
             };
 
-            viewModel = new ItemDetailViewModel(item);
-            BindingContext = viewModel;
+            _viewModel = new ItemDetailViewModel(item);
+            BindingContext = _viewModel;
         }
     }
 }

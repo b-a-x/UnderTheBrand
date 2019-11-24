@@ -1,4 +1,4 @@
-﻿using UnderTheBrand.Infrastructure.Mobile.Models;
+﻿using UnderTheBrand.Domain.Entity;
 
 namespace UnderTheBrand.Infrastructure.Mobile.ViewModels
 {

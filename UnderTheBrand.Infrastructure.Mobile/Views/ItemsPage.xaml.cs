@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using UnderTheBrand.Infrastructure.Mobile.Models;
+using UnderTheBrand.Domain.Entity;
 using UnderTheBrand.Infrastructure.Mobile.ViewModels;
 using Xamarin.Forms;
 
