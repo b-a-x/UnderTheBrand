@@ -12,7 +12,7 @@ namespace UnderTheBrand.Infrastructure.DAL.Configurations
             builder.ToTable(nameof(Person) + "s");
 
             builder.HasKey(p => p.Id);
-            builder.Property(p => p.Id).ValueGeneratedNever().IsRequired();
+            builder.Property(p => p.Id).ValueGeneratedOnAdd().IsRequired();
 
             builder.OwnsOne(p => p.Age, a => {
                 a.Property(u => u.Value).HasColumnName(nameof(Age));

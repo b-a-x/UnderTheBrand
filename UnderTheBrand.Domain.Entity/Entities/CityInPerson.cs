@@ -1,5 +1,4 @@
-﻿using System;
-using PommaLabs.Thrower;
+﻿using PommaLabs.Thrower;
 using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Entity.Entities
@@ -8,7 +7,7 @@ namespace UnderTheBrand.Domain.Entity.Entities
     {
         protected CityInPerson() { }
 
-        public CityInPerson(City city, Person person) : base(Guid.NewGuid().ToString())
+        public CityInPerson(City city, Person person)
         {
             Raise.ArgumentNullException.IfIsNull(city, nameof(city));
             Raise.ArgumentNullException.IfIsNull(person, nameof(person));

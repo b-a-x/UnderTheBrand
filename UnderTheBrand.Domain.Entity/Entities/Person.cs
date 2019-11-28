@@ -1,5 +1,4 @@
-﻿using System;
-using PommaLabs.Thrower;
+﻿using PommaLabs.Thrower;
 using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Entity.Entities
@@ -8,7 +7,7 @@ namespace UnderTheBrand.Domain.Entity.Entities
     {
         protected Person() { }
 
-        public Person(PersonalName personalName, Age age) : base(Guid.NewGuid().ToString())
+        public Person(PersonalName personalName, Age age)
         {
             Raise.ArgumentNullException.IfIsNull(personalName, nameof(personalName));
             Raise.ArgumentNullException.IfIsNull(age, nameof(age));

@@ -1,29 +1,18 @@
-﻿using PommaLabs.Thrower;
-
-namespace UnderTheBrand.Domain.Core.Base
+﻿namespace UnderTheBrand.Domain.Core.Base
 {
     /// <summary>
     /// Базовый класс
     /// </summary>
     public abstract class EntityObject 
     {
-        protected EntityObject() { }
-
-        protected EntityObject(string id)
-        {
-            Raise.ArgumentNullException.IfIsNull(id, nameof(id));
-            Id = id;
-        }
-
         /// <summary>
         /// Индификатор
         /// </summary>
-        public string Id { get; }
+        public string Id { get; protected set; }
 
         public override bool Equals(object obj)
         {
             var other = obj as EntityObject;
-
             if (other is null)
                 return false;
 

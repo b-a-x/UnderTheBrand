@@ -5,8 +5,6 @@ namespace UnderTheBrand.Domain.Core.Base
 {
     public abstract class ValueObject 
     {
-        protected ValueObject() { }
-
         protected abstract IEnumerable<object> GetEqualityComponents();
 
         public override bool Equals(object obj)
