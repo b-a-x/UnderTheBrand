@@ -44,3 +44,6 @@
 /UnderTheBrand.Infrastructure.DTO/bin/Debug/netstandard2.0
 /UnderTheBrand.Infrastructure.ViewModel/bin/Debug/netstandard2.0
 /UnderTheBrand.Infrastructure.ViewModel/obj
+/UnderTheBrand.Infrastructure.DTO/bin/Release/netstandard2.0
+/UnderTheBrand.Infrastructure.ViewModel/bin/Release/netstandard2.0
+/UnderTheBrand.Presentation/UnderTheBrand.Presentation.Android/bin/Release
