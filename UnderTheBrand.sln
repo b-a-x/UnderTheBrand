@@ -39,7 +39,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderTheBrand.Presentation.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnderTheBrand.Infrastructure.Mobile", "UnderTheBrand.Infrastructure.Mobile\UnderTheBrand.Infrastructure.Mobile.csproj", "{67B4CC11-5B73-4390-BF16-8E5D97436026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderTheBrand.Infrastructure.ViewModel", "UnderTheBrand.Infrastructure.ViewModel\UnderTheBrand.Infrastructure.ViewModel.csproj", "{3509A08D-C37B-4902-A81D-E5CE83C5E259}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnderTheBrand.Infrastructure.ViewModel", "UnderTheBrand.Infrastructure.ViewModel\UnderTheBrand.Infrastructure.ViewModel.csproj", "{3509A08D-C37B-4902-A81D-E5CE83C5E259}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{1C321C38-8309-4768-8774-B68C7695B33D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architecture", "Architecture", "{618D580F-DCE1-4F8F-9DFE-91156E1A7A6E}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\Архитектура.jpg = ..\..\..\Desktop\Архитектура.jpg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{C240C5D7-BDE8-4AB5-85AD-73FE46C42A05}"
+	ProjectSection(SolutionItems) = preProject
+		UnderTheBrand.Presentation\UnderTheBrand.Presentation.UWP\logo_utb.jpg = UnderTheBrand.Presentation\UnderTheBrand.Presentation.UWP\logo_utb.jpg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -416,6 +428,8 @@ Global
 		{0A55DBB5-1FAD-4B24-BEB8-B607F2B4171A} = {8CDE87AB-903B-4415-9AA2-507D0F7EE82B}
 		{67B4CC11-5B73-4390-BF16-8E5D97436026} = {C13D4610-42E8-46E0-9455-7CA1254B0B4A}
 		{3509A08D-C37B-4902-A81D-E5CE83C5E259} = {C13D4610-42E8-46E0-9455-7CA1254B0B4A}
+		{618D580F-DCE1-4F8F-9DFE-91156E1A7A6E} = {1C321C38-8309-4768-8774-B68C7695B33D}
+		{C240C5D7-BDE8-4AB5-85AD-73FE46C42A05} = {1C321C38-8309-4768-8774-B68C7695B33D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0283DF95-9A95-40ED-BF12-5A4EE2169B92}

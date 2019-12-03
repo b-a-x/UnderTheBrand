@@ -103,7 +103,6 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="logo_utb.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
