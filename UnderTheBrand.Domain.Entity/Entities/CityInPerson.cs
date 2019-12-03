@@ -1,18 +1,17 @@
-﻿using PommaLabs.Thrower;
+﻿using System;
+using UnderTheBrand.Domain.Entity.Base;
 using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Entity.Entities
 {
-    public class CityInPerson : Core.Base.HasIdBase
+    public class CityInPerson : HasId
     {
         protected CityInPerson() { }
 
         public CityInPerson(City city, Person person)
         {
-            Raise.ArgumentNullException.IfIsNull(city, nameof(city));
-            Raise.ArgumentNullException.IfIsNull(person, nameof(person));
-            City = city;
-            Person = person;
+            City = city ?? throw new ArgumentNullException(nameof(city));
+            Person = person ?? throw new ArgumentNullException(nameof(person));
         }
 
         public City City { get; protected set; }

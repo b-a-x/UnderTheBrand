@@ -1,18 +1,17 @@
-﻿using PommaLabs.Thrower;
+﻿using System;
+using UnderTheBrand.Domain.Entity.Base;
 using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Entity.Entities
 {
-    public class Person : Core.Base.HasIdBase
+    public class Person : HasId
     {
         protected Person() { }
 
         public Person(PersonalName personalName, Age age)
         {
-            Raise.ArgumentNullException.IfIsNull(personalName, nameof(personalName));
-            Raise.ArgumentNullException.IfIsNull(age, nameof(age));
-            Age = age;
-            PersonalName = personalName;
+            Age = age ?? throw new ArgumentNullException(nameof(age));
+            PersonalName = personalName ?? throw new ArgumentNullException(nameof(personalName));
         }
 
         public PersonalName PersonalName { get; set; }
