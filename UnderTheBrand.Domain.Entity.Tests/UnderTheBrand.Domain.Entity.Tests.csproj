@@ -17,4 +17,8 @@
     <ProjectReference Include="..\UnderTheBrand.Domain.Entity\UnderTheBrand.Domain.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Base\" />
+  </ItemGroup>
+
 </Project>

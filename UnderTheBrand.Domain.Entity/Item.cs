@@ -1,8 +1,6 @@
-﻿using UnderTheBrand.Domain.Entity.Base;
-
-namespace UnderTheBrand.Domain.Entity
+﻿namespace UnderTheBrand.Domain.Entity
 {
-    public class Item : HasId
+    public class Item : Base.Entity
     {
         public Item() { }
 

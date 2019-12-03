@@ -1,31 +1,30 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using UnderTheBrand.Domain.Core.Base;
 using UnderTheBrand.Domain.Core.Interfaces.Base;
-using UnderTheBrand.Domain.Entity.Base;
 
-namespace UnderTheBrand.Domain.Entity.Tests.Base
+namespace UnderTheBrand.Domain.Core.Tests.Base
 {
     [TestClass]
-    public class HasIdTests
+    public class HasIdBaseTests
     {
         private readonly string _id;
-        private readonly HasId _hasId;
+        private readonly HasIdBaseTest _hasId;
 
-        public HasIdTests()
+        public HasIdBaseTests()
         {
             _id = Guid.NewGuid().ToString();
-            _hasId = new HasId();
+            _hasId = new HasIdBaseTest();
         }
 
         [TestMethod]
         public void HasId_IsNew_True()
         {
             // arrange
-            var hasId = new HasId();
             // act
 
             // assert
-            Assert.IsTrue(hasId.IsNew());
+            Assert.IsTrue(_hasId.IsNew());
         }
 
         [TestMethod]
@@ -47,7 +46,7 @@ namespace UnderTheBrand.Domain.Entity.Tests.Base
             // act
 
             // assert
-            Assert.IsTrue(((IHasId)_hasId).Id?.Equals(_id) == true);
+            Assert.IsTrue(((IHasId)_hasId).Id.Equals(_id));
         }
 
         [TestMethod]
@@ -55,8 +54,7 @@ namespace UnderTheBrand.Domain.Entity.Tests.Base
         {
             // arrange
             _hasId.Id = _id;
-            var newHasId = new HasId { Id = _id };
-            
+            var newHasId = new HasIdBaseTest { Id = _id };
             // act
 
             // assert
@@ -69,13 +67,17 @@ namespace UnderTheBrand.Domain.Entity.Tests.Base
         {
             // arrange
             _hasId.Id = _id;
-            var newHasId = new HasId { Id = Guid.NewGuid().ToString() };
-
+            var newHasId = new HasIdBaseTest { Id = Guid.NewGuid().ToString() };
             // act
 
             // assert
             Assert.IsFalse(_hasId.Equals(newHasId));
             Assert.IsTrue(_hasId != newHasId);
+        }
+        
+        private class HasIdBaseTest : HasIdBase<string>
+        {
+            internal HasIdBaseTest() { }
         }
     }
 }

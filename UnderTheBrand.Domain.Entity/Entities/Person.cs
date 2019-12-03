@@ -1,10 +1,9 @@
 ﻿using System;
-using UnderTheBrand.Domain.Entity.Base;
 using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Entity.Entities
 {
-    public class Person : HasId
+    public class Person : Base.Entity
     {
         protected Person() { }
 
