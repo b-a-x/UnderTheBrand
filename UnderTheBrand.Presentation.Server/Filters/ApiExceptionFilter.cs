@@ -7,6 +7,7 @@ using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Presentation.Server.Filters
 {
+    //TODO: тест
     public class ApiExceptionFilter : IExceptionFilter
     {
         private readonly IWebHostEnvironment _environment;

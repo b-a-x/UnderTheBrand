@@ -1,8 +1,16 @@
-﻿namespace UnderTheBrand.Presentation.Server.Middlewares
+﻿using System;
+using System.Net;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+
+namespace UnderTheBrand.Presentation.Server.Middlewares
 {
+    // TODO: тест
     public class ErrorHandlingMiddleware
     {
-        /*private readonly RequestDelegate _next;
+        private readonly RequestDelegate _next;
         private readonly ILogger<ErrorHandlingMiddleware> _logger;
 
         public ErrorHandlingMiddleware(RequestDelegate next, ILogger<ErrorHandlingMiddleware> logger)
@@ -15,36 +23,27 @@
         {
             try
             {
-                //_logger.LogInformation(await FormatRequest(context.Request));
-
                 await _next(context);
             }
             catch (Exception ex)
             {
-                
                 await HandleExceptionAsync(context, ex);
             }
         }
         
-        private async Task<string> FormatRequest(HttpRequest request)
-        {
-            byte[] buffer = new byte[Convert.ToInt32(request.ContentLength)];
-            await request.Body.ReadAsync(buffer, 0, buffer.Length);
-            string bodyAsText = Encoding.UTF8.GetString(buffer);
-            
-            return $"{request.Scheme} {request.Host}{request.Path} {request.QueryString}";
-        }
-        
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
+            //TODO: Логировать все
             if (exception is AggregateException aex && aex.InnerExceptions?.Count > 0)
                 exception = aex.InnerExceptions[0];
 
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             _logger.LogError(exception, nameof(HttpStatusCode.InternalServerError));
 
-            return context.Response.WriteAsync(JsonConvert.SerializeObject(new ApiError(exception)));
+            //TODO: Не отображается информация об ошибке в браузере
+            //return context.Response.WriteAsync(JsonConvert.SerializeObject(new Error(exception)));
+            //TODO: Сделать объект ответа и записи в логи ошибок
+            return context.Response.WriteAsync(JsonConvert.SerializeObject(exception));
         }
-        */
     }
 }

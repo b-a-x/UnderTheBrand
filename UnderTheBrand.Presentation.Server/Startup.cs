@@ -6,12 +6,10 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using UnderTheBrand.Domain.ValueObject.Helpers;
 using UnderTheBrand.Domain.ValueObject.Values;
 using UnderTheBrand.Infrastructure.DAL.Context;
 using UnderTheBrand.Presentation.Server.Extensions;
-using UnderTheBrand.Presentation.Server.Filters;
 using UnderTheBrand.Presentation.Server.Middlewares;
 
 namespace UnderTheBrand.Presentation.Server
@@ -38,10 +36,7 @@ namespace UnderTheBrand.Presentation.Server
                     options.InvalidModelStateResponseFactory = ModelStateValidator.ValidateModelState;
                 });
 
-            services.AddMvc(options =>
-            {
-                options.Filters.Add(typeof(ApiExceptionFilter));
-            });
+            services.AddMvc();
 
             services.AddMemoryCache();
             services.AddInjection();
@@ -50,11 +45,9 @@ namespace UnderTheBrand.Presentation.Server
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
+            //app.UseMiddleware<RequestResponseLoggingMiddleware>();
+            app.UseMiddleware<ErrorHandlingMiddleware>();
+            
             //app.UseHttpsRedirection();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
