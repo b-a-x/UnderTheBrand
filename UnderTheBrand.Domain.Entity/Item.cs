@@ -1,6 +1,6 @@
 ﻿namespace UnderTheBrand.Domain.Entity
 {
-    public class Item : Core.Base.EntityObject
+    public class Item : Core.Base.HasIdBase
     {
         public Item() { }
 

@@ -3,7 +3,7 @@ using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Entity.Entities
 {
-    public class Person : Core.Base.EntityObject
+    public class Person : Core.Base.HasIdBase
     {
         protected Person() { }
 

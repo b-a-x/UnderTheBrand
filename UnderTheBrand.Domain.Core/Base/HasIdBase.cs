@@ -1,18 +1,15 @@
-﻿namespace UnderTheBrand.Domain.Core.Base
+﻿using UnderTheBrand.Domain.Core.Interfaces.Base;
+
+namespace UnderTheBrand.Domain.Core.Base
 {
-    /// <summary>
-    /// Базовый класс
-    /// </summary>
-    public abstract class EntityObject 
+    public abstract class HasIdBase : IHasId<string>
     {
-        /// <summary>
-        /// Индификатор
-        /// </summary>
-        public string Id { get; protected set; }
+        public string Id { get; set; }
+        object IHasId.Id => Id;
 
         public override bool Equals(object obj)
         {
-            var other = obj as EntityObject;
+            var other = obj as HasIdBase;
             if (other is null)
                 return false;
 
@@ -25,7 +22,7 @@
             return Id == other.Id;
         }
 
-        public static bool operator ==(EntityObject a, EntityObject b)
+        public static bool operator ==(HasIdBase a, HasIdBase b)
         {
             if (a is null && b is null)
                 return true;
@@ -36,7 +33,7 @@
             return a.Equals(b);
         }
 
-        public static bool operator !=(EntityObject a, EntityObject b)
+        public static bool operator !=(HasIdBase a, HasIdBase b)
         {
             return !(a == b);
         }

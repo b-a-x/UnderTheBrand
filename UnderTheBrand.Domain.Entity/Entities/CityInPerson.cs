@@ -3,7 +3,7 @@ using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Entity.Entities
 {
-    public class CityInPerson : Core.Base.EntityObject
+    public class CityInPerson : Core.Base.HasIdBase
     {
         protected CityInPerson() { }
 

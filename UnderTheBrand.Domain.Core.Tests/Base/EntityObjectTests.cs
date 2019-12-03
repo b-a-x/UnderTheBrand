@@ -23,7 +23,7 @@ namespace UnderTheBrand.Domain.Core.Tests.Base
         public void Entity_create_custom_constructor()
         {
             // arrange
-            ConstructorInfo constructor = typeof(EntityObject).GetConstructor(BindingFlags.NonPublic | BindingFlags.CreateInstance | BindingFlags.Instance,
+            ConstructorInfo constructor = typeof(HasIdBase).GetConstructor(BindingFlags.NonPublic | BindingFlags.CreateInstance | BindingFlags.Instance,
                 null, types: new[] { typeof(string) }, null);
 
             // act
