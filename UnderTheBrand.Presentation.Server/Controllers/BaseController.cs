@@ -6,6 +6,8 @@ using UnderTheBrand.Presentation.Server.Services.Interfaces;
 
 namespace UnderTheBrand.Presentation.Server.Controllers
 {
+    // TODO: Протестировать на наличие атрибутов
+    [ApiController]
     [Route("api/[controller]")]
     public class BaseController : ControllerBase, IBaseController
     {

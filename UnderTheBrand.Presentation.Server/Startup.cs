@@ -43,7 +43,8 @@ namespace UnderTheBrand.Presentation.Server
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         { 
-            app.UseMiddleware<RequestResponseLoggingMiddleware>();
+            //TODO: Научиться читать стримы
+            //app.UseMiddleware<RequestResponseLoggingMiddleware>();
             app.UseMiddleware<ErrorHandlingMiddleware>();
             
             //app.UseHttpsRedirection();
@@ -57,18 +58,16 @@ namespace UnderTheBrand.Presentation.Server
 
     public class ModelStateValidator
     {
+        //TODO: Тест
         public static IActionResult ValidateModelState(ActionContext context)
         {
             (string fieldName, ModelStateEntry entry) = context.ModelState
                 .First(x => x.Value.Errors.Count > 0);
             
             string errorSerialized = entry.Errors.First().ErrorMessage;
-
             Error error = Error.Deserialize(errorSerialized);
-
             EnvelopeError envelope = EnvelopeError.Error(error, fieldName);
             var result = new BadRequestObjectResult(envelope);
-
             return result;
         }
     }

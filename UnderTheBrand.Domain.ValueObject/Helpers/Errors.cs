@@ -14,6 +14,7 @@ namespace UnderTheBrand.Domain.ValueObject.Helpers
             public static Error NameIsTaken(string name) => 
                 new Error("person.name.is.taken", $"Student name '{name}' is taken");
         }
+
         public static class General
         {
             public static Error NotFound(string entityName, string id) =>
@@ -27,6 +28,9 @@ namespace UnderTheBrand.Domain.ValueObject.Helpers
 
             public static Error ValueIsEmpty(string value) =>
                 new Error("general.value.is.empty", $"'{value}' can't be empty");
+
+            public static Error SystemValueIsInvalid(string value) =>
+                new Error("general.system.value.is.invalid", value);
         }
     }
 }

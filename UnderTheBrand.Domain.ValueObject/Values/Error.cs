@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnderTheBrand.Domain.ValueObject.Helpers;
 
 namespace UnderTheBrand.Domain.ValueObject.Values
 {
@@ -33,7 +34,10 @@ namespace UnderTheBrand.Domain.ValueObject.Values
                 StringSplitOptions.RemoveEmptyEntries);
 
             if (data.Length < 2)
-                throw new ArgumentNullException($"Invalid error serialization: '{serialized}'");
+              //    throw new ArgumentNullException($"Invalid error serialization: '{serialized}'");}
+            {
+                return Errors.General.SystemValueIsInvalid(data[0]);
+            }
 
             return new Error(data[0], data[1]);
         }
