@@ -4,12 +4,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Presentation.Server.Middlewares
 {
     // TODO: тест
     public class ErrorHandlingMiddleware
     {
+        private const string _internalServerError = "Internal Server Error";
+        private const string _innerException = "Internal Server Error (Inner Exception)";
         private readonly RequestDelegate _next;
         private readonly ILogger<ErrorHandlingMiddleware> _logger;
 
@@ -33,17 +36,16 @@ namespace UnderTheBrand.Presentation.Server.Middlewares
         
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
-            //TODO: Логировать все
+            _logger.LogError(exception, _internalServerError);
             if (exception is AggregateException aex && aex.InnerExceptions?.Count > 0)
-                exception = aex.InnerExceptions[0];
+                foreach (Exception aexInnerException in aex.InnerExceptions)
+                    _logger.LogError(aexInnerException, _innerException);
 
+
+            var error = new Error(HttpStatusCode.InternalServerError.ToString(), exception.Message);
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            _logger.LogError(exception, nameof(HttpStatusCode.InternalServerError));
-
-            //TODO: Не отображается информация об ошибке в браузере
-            //return context.Response.WriteAsync(JsonConvert.SerializeObject(new Error(exception)));
-            //TODO: Сделать объект ответа и записи в логи ошибок
-            return context.Response.WriteAsync(JsonConvert.SerializeObject(exception));
+            
+            return context.Response.WriteAsync(JsonConvert.SerializeObject(error));
         }
     }
 }
