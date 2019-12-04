@@ -36,9 +36,7 @@ namespace UnderTheBrand.Presentation.Server
                     options.InvalidModelStateResponseFactory = ModelStateValidator.ValidateModelState;
                 });
 
-            services.AddMvc();
-
-            services.AddMemoryCache();
+            //services.AddMemoryCache();
             services.AddInjection();
         }
 
