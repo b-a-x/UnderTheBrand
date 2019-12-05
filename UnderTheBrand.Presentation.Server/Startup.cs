@@ -35,7 +35,8 @@ namespace UnderTheBrand.Presentation.Server
                 {
                     options.InvalidModelStateResponseFactory = ModelStateValidator.ValidateModelState;
                 });
-
+            services.AddRazorPages();
+            services.AddServerSideBlazor();
             //services.AddMemoryCache();
             services.AddInjection();
         }
@@ -46,11 +47,13 @@ namespace UnderTheBrand.Presentation.Server
             //TODO: Научиться читать стримы
             //app.UseMiddleware<RequestResponseLoggingMiddleware>();
             app.UseMiddleware<ErrorHandlingMiddleware>();
-            
+            app.UseStaticFiles();
             //app.UseHttpsRedirection();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/_Host");
                 endpoints.MapControllers();
             });
         }

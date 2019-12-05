@@ -53,7 +53,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{C2
 		UnderTheBrand.Presentation\UnderTheBrand.Presentation.UWP\logo_utb.jpg = UnderTheBrand.Presentation\UnderTheBrand.Presentation.UWP\logo_utb.jpg
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderTheBrand.Domain.Entity.Tests", "UnderTheBrand.Domain.Entity.Tests\UnderTheBrand.Domain.Entity.Tests.csproj", "{DD92FEC2-7C32-494C-BB6B-8FB944E0A06D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnderTheBrand.Domain.Entity.Tests", "UnderTheBrand.Domain.Entity.Tests\UnderTheBrand.Domain.Entity.Tests.csproj", "{DD92FEC2-7C32-494C-BB6B-8FB944E0A06D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
