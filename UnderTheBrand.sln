@@ -49,11 +49,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architecture", "Architectur
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{C240C5D7-BDE8-4AB5-85AD-73FE46C42A05}"
-	ProjectSection(SolutionItems) = preProject
-		UnderTheBrand.Presentation\UnderTheBrand.Presentation.UWP\logo_utb.jpg = UnderTheBrand.Presentation\UnderTheBrand.Presentation.UWP\logo_utb.jpg
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnderTheBrand.Domain.Entity.Tests", "UnderTheBrand.Domain.Entity.Tests\UnderTheBrand.Domain.Entity.Tests.csproj", "{DD92FEC2-7C32-494C-BB6B-8FB944E0A06D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logotype", "Logotype", "{69CCC9D2-78F4-47C7-A9D2-6D93312DB5C3}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\logo-1.jpg = ..\..\..\Desktop\logo-1.jpg
+		..\..\..\Desktop\logo-2.jpg = ..\..\..\Desktop\logo-2.jpg
+		..\..\..\Desktop\logo-3.png = ..\..\..\Desktop\logo-3.png
+		UnderTheBrand.Presentation\UnderTheBrand.Presentation.UWP\logo_utb.jpg = UnderTheBrand.Presentation\UnderTheBrand.Presentation.UWP\logo_utb.jpg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -457,6 +462,7 @@ Global
 		{618D580F-DCE1-4F8F-9DFE-91156E1A7A6E} = {1C321C38-8309-4768-8774-B68C7695B33D}
 		{C240C5D7-BDE8-4AB5-85AD-73FE46C42A05} = {1C321C38-8309-4768-8774-B68C7695B33D}
 		{DD92FEC2-7C32-494C-BB6B-8FB944E0A06D} = {DF379BD6-9BC9-429F-A5F7-278274C6038E}
+		{69CCC9D2-78F4-47C7-A9D2-6D93312DB5C3} = {C240C5D7-BDE8-4AB5-85AD-73FE46C42A05}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0283DF95-9A95-40ED-BF12-5A4EE2169B92}
