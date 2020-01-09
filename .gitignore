@@ -50,3 +50,5 @@
 /UnderTheBrand.Domain.Entity.Tests/bin/Debug/netcoreapp3.1
 /UnderTheBrand.Domain.Entity.Tests/obj
 /UnderTheBrand.Domain.Entity.Tests/bin/Release/netcoreapp3.1
+/UnderTheBrand.Presentation.Server.Tests/bin/Debug/netcoreapp3.1
+/UnderTheBrand.Presentation.Server.Tests/obj
