@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UnderTheBrand.Domain.ValueObject.Helpers;
 using UnderTheBrand.Domain.ValueObject.Values;
-using UnderTheBrand.Infrastructure.DAL.Context;
+using UnderTheBrand.Infrastructure.Dal.Context;
 using UnderTheBrand.Presentation.Server.Extensions;
 using UnderTheBrand.Presentation.Server.Middlewares;
 
@@ -59,7 +59,7 @@ namespace UnderTheBrand.Presentation.Server
         }
     }
 
-    public class ModelStateValidator
+    public static class ModelStateValidator
     {
         //TODO: Тест
         public static IActionResult ValidateModelState(ActionContext context)

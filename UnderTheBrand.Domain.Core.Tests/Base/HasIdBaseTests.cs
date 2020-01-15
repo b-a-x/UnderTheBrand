@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UnderTheBrand.Domain.Core.Base;
-using UnderTheBrand.Domain.Core.Interfaces.Base;
+using UnderTheBrand.Domain.Core.Extensions;
+using UnderTheBrand.Domain.Core.Interfaces;
 
 namespace UnderTheBrand.Domain.Core.Tests.Base
 {
@@ -77,7 +78,6 @@ namespace UnderTheBrand.Domain.Core.Tests.Base
         
         private class HasIdBaseTest : HasIdBase<string>
         {
-            internal HasIdBaseTest() { }
         }
     }
 }

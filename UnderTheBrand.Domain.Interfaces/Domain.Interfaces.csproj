@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Domain.Interfaces</AssemblyName>
+    <RootNamespace>UnderTheBrand.Domain.Interfaces</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnderTheBrand.Domain.Entity\Domain.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

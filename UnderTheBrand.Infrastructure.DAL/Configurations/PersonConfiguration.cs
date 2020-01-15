@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using UnderTheBrand.Domain.Entity.Entities;
 using UnderTheBrand.Domain.ValueObject.Values;
 
-namespace UnderTheBrand.Infrastructure.DAL.Configurations
+namespace UnderTheBrand.Infrastructure.Dal.Configurations
 {
     internal class PersonConfiguration : IEntityTypeConfiguration<Person>
     {

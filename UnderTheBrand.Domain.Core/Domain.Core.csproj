@@ -2,10 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Domain.Core</AssemblyName>
+    <RootNamespace>UnderTheBrand.Domain.Core</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\UnderTheBrand.Domain.ValueObject\UnderTheBrand.Domain.ValueObject.csproj" />
-  </ItemGroup>
 
 </Project>

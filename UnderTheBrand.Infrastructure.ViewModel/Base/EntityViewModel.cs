@@ -1,6 +1,6 @@
 ﻿namespace UnderTheBrand.Infrastructure.ViewModel.Base
 {
-    public class EntityVM
+    public class EntityViewModel
     {
         public string Id { get; set; }
     }

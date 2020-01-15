@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UnderTheBrand.Domain.Entity.Entities;
-using UnderTheBrand.Infrastructure.DAL.Configurations;
+using UnderTheBrand.Infrastructure.Dal.Configurations;
 
-namespace UnderTheBrand.Infrastructure.DAL.Context
+namespace UnderTheBrand.Infrastructure.Dal.Context
 {
     public sealed class UnderTheBrandContext : DbContext
     {

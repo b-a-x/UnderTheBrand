@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-
     <IsPackable>false</IsPackable>
+    <AssemblyName>Presentation.Server.Tests</AssemblyName>
+    <RootNamespace>UnderTheBrand.Presentation.Server.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,11 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnderTheBrand.Domain.Entity\UnderTheBrand.Domain.Entity.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Base\" />
+    <ProjectReference Include="..\UnderTheBrand.Presentation.Server\Presentation.Server.csproj" />
   </ItemGroup>
 
 </Project>

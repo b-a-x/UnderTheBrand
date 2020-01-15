@@ -34,7 +34,7 @@ namespace UnderTheBrand.Presentation.Server.Controllers
         }
 
         [HttpPost(nameof(UpdatePerson))]
-        public IActionResult UpdatePerson([FromBody] PersonVM vm)
+        public IActionResult UpdatePerson([FromBody] PersonViewModel vm)
         {
             Result<Name> firstName = Name.Create(vm.FirstName);
             Result<Name> lastName = Name.Create(vm.LastName);

@@ -4,7 +4,7 @@ using UnderTheBrand.Infrastructure.ViewModel.Base;
 
 namespace UnderTheBrand.Infrastructure.ViewModel.Entities
 {
-    public class PersonVM : EntityVM
+    public class PersonViewModel : EntityViewModel
     {
         [Required, Name]
         public string FirstName { get; set; }

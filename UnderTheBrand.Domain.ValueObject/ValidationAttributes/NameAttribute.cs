@@ -11,10 +11,7 @@ namespace UnderTheBrand.Domain.ValueObject.ValidationAttributes
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value == null) return ValidationResult.Success;
-
-            string name = value as string;
-            if (name == null) return new ValidationResult(Errors.General.ValueIsInvalid().Serialize());
-
+            if (!(value is string name)) return new ValidationResult(Errors.General.ValueIsInvalid().Serialize());
             Result<Name> emailResult = Name.Create(name);
             if (emailResult.Failure) return new ValidationResult(emailResult.Error.Serialize());
 

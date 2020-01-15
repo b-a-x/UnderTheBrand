@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using PommaLabs.Thrower;
 using UnderTheBrand.Domain.Entity.Base;
 using UnderTheBrand.Domain.Interfaces.Repositories;
-using UnderTheBrand.Infrastructure.DAL.Context;
+using UnderTheBrand.Infrastructure.Dal.Context;
 
-namespace UnderTheBrand.Infrastructure.DAL.Repositories
+namespace UnderTheBrand.Infrastructure.Dal.Repositories
 {
     public class EntityRepository<T> : IEntityRepository<T> where T : Entity
     {

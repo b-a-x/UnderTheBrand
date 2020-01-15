@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using UnderTheBrand.Domain.Entity.Entities;
 using UnderTheBrand.Domain.Interfaces.Repositories;
-using UnderTheBrand.Infrastructure.DAL.Context;
+using UnderTheBrand.Infrastructure.Dal.Context;
 
-namespace UnderTheBrand.Infrastructure.DAL.Repositories
+namespace UnderTheBrand.Infrastructure.Dal.Repositories
 {
     public class PersonRepository : EntityRepository<Person>, IPersonRepository
     {

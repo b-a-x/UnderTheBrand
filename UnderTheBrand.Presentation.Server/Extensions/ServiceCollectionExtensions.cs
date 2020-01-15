@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using UnderTheBrand.Domain.Interfaces.Repositories;
-using UnderTheBrand.Infrastructure.DAL.Repositories;
+using UnderTheBrand.Infrastructure.Dal.Repositories;
 using UnderTheBrand.Presentation.Server.Data;
 using UnderTheBrand.Presentation.Server.Services;
 using UnderTheBrand.Presentation.Server.Services.Interfaces;
@@ -16,7 +16,7 @@ namespace UnderTheBrand.Presentation.Server.Extensions
             AddSingleton(services);
         }
 
-        private static void AddTransient(IServiceCollection services)
+        private static void AddTransient(IServiceCollection _)
         {
         }
 

@@ -35,12 +35,12 @@ namespace UnderTheBrand.Domain.ValueObject.Values
 
         public static Result<T> Fail<T>(string message)
         {
-            return new Result<T>(default(T), false, message);
+            return new Result<T>(default, false, message);
         }
 
         public static Result<T> Fail<T>(Error error)
         {
-            return new Result<T>(default(T),false, error);
+            return new Result<T>(default,false, error);
         }
 
         public static Result Ok()

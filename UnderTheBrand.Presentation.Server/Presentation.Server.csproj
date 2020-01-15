@@ -4,6 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>09bc3c71-1289-4d81-86e6-2fd67008a14d</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <AssemblyName>Presentation.Server</AssemblyName>
+    <RootNamespace>UnderTheBrand.Presentation.Server</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnderTheBrand.Infrastructure.DAL\UnderTheBrand.Infrastructure.DAL.csproj" />
-    <ProjectReference Include="..\UnderTheBrand.Infrastructure.ViewModel\UnderTheBrand.Infrastructure.ViewModel.csproj" />
+    <ProjectReference Include="..\UnderTheBrand.Infrastructure.DAL\Infrastructure.Dal.csproj" />
+    <ProjectReference Include="..\UnderTheBrand.Infrastructure.ViewModel\Infrastructure.ViewModel.csproj" />
   </ItemGroup>
 
   <ItemGroup>

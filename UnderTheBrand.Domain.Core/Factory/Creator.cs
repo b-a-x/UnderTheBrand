@@ -1,4 +1,4 @@
-﻿using UnderTheBrand.Domain.Core.Interfaces.Base;
+﻿using UnderTheBrand.Domain.Core.Interfaces;
 
 namespace UnderTheBrand.Domain.Core.Factory
 {

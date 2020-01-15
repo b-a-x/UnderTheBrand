@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnderTheBrand.Domain.Core.Interfaces.Base;
+using UnderTheBrand.Domain.Core.Interfaces;
 
 namespace UnderTheBrand.Domain.Core.Base
 {

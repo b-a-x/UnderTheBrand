@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Infrastructure.Dal</AssemblyName>
+    <RootNamespace>UnderTheBrand.Infrastructure.Dal</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnderTheBrand.Domain.Interfaces\UnderTheBrand.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\UnderTheBrand.Domain.Interfaces\Domain.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
