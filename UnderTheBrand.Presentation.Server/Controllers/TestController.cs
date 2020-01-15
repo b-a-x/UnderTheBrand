@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UnderTheBrand.Domain.Entity.Entities;
 using UnderTheBrand.Domain.Interfaces.Repositories;
@@ -18,30 +18,21 @@ namespace UnderTheBrand.Presentation.Server.Controllers
         }
 
         [HttpGet(nameof(Get))]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            Result<Name> name = Name.Create("Ilia");
-            Result<Age> age = Age.Create(28);
-            PersonalName personalName = new PersonalName(name.Value, name.Value);
-            Person person = new Person(personalName, age.Value);
-            
-            _repository.Create(person);
-
-            IReadOnlyCollection<Person> persons = _repository.Read();
-
             //TODO: ответ мапить в dto
-            return Ok(persons);
+            return Ok(await _repository.GetList());
         }
 
         [HttpPost(nameof(UpdatePerson))]
-        public IActionResult UpdatePerson([FromBody] PersonViewModel vm)
+        public async Task<IActionResult> UpdatePerson([FromBody] PersonViewModel vm)
         {
             Result<Name> firstName = Name.Create(vm.FirstName);
             Result<Name> lastName = Name.Create(vm.LastName);
             Result<Age> age = Age.Create(vm.Age);
             PersonalName personalName = new PersonalName(firstName.Value, lastName.Value);
             Person person = new Person(personalName, age.Value);
-
+            person = await _repository.CreateAsync(person);
             //TODO: ответ мапить в dto
             return Ok(person);
         }
