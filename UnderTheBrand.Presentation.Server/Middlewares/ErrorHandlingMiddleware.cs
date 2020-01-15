@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Presentation.Server.Middlewares
@@ -44,8 +44,7 @@ namespace UnderTheBrand.Presentation.Server.Middlewares
 
             var error = new Error(HttpStatusCode.InternalServerError.ToString(), exception.Message);
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            
-            return context.Response.WriteAsync(JsonConvert.SerializeObject(error));
+            return context.Response.WriteAsync(JsonSerializer.Serialize(error));
         }
     }
 }
