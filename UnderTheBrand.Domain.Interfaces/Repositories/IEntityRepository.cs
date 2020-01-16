@@ -24,6 +24,13 @@ namespace UnderTheBrand.Domain.Interfaces.Repositories
         Task<T> CreateAsync(T entity);
 
         /// <summary>
+        /// Создать
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<IReadOnlyCollection<T>> CreateRangeAsync(IReadOnlyCollection<T> entity);
+
+        /// <summary>
         /// Прочитать
         /// </summary>
         /// <returns></returns>

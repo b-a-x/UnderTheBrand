@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -24,8 +25,10 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
         public T Create(T entity)
         {
             Raise.ArgumentNullException.IfIsNull(entity, nameof(entity));
-
+            entity.Id = new Guid();
+            _context.ChangeTracker.AutoDetectChangesEnabled = false;
             _context.Set<T>().Add(entity);
+            _context.ChangeTracker.AutoDetectChangesEnabled = true;
             _context.SaveChanges();
             return entity;
         }
@@ -33,15 +36,32 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
         public async Task<T> CreateAsync(T entity)
         {
             Raise.ArgumentNullException.IfIsNull(entity, nameof(entity));
-
+            entity.Id = new Guid();
+            _context.ChangeTracker.AutoDetectChangesEnabled = false;
             await _context.Set<T>().AddAsync(entity);
+            _context.ChangeTracker.AutoDetectChangesEnabled = true;
             await _context.SaveChangesAsync();
             return entity;
         }
 
-        public IReadOnlyCollection<T> Read() => _context.Set<T>().ToList();
+        /// <summary>
+        /// Создать
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async Task<IReadOnlyCollection<T>> CreateRangeAsync(IReadOnlyCollection<T> entity)
+        {
+            Raise.ArgumentNullException.IfIsNull(entity, nameof(entity));
+            _context.ChangeTracker.AutoDetectChangesEnabled = false;
+            await _context.Set<T>().AddRangeAsync(entity);
+            _context.ChangeTracker.AutoDetectChangesEnabled = true;
+            await _context.SaveChangesAsync();
+            return entity;
+        }
 
-        public async Task<IReadOnlyCollection<T>> ReadAsync() => await _context.Set<T>().ToListAsync();
+        public IReadOnlyCollection<T> Read() => _context.Set<T>().AsNoTracking().ToList();
+
+        public async Task<IReadOnlyCollection<T>> ReadAsync() => await _context.Set<T>().AsNoTracking().ToListAsync();
 
         public T Update(T entity)
         {

@@ -21,6 +21,7 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
             return await _context.Persons
                 .OrderBy(p => p.PersonalName.LastName.Value)
                 .ThenBy(p => p.PersonalName.FirstName.Value)
+                .AsNoTracking()
                 .ToListAsync();
         }
     }
