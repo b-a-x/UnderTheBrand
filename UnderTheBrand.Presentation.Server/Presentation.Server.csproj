@@ -17,4 +17,8 @@
     <ProjectReference Include="..\UnderTheBrand.Infrastructure.ViewModel\Infrastructure.ViewModel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

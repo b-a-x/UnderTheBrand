@@ -1,11 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using UnderTheBrand.Domain.Core.Interfaces;
 using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Infrastructure.Dal.Repositories;
-using UnderTheBrand.Infrastructure.Dal.UoW;
 using UnderTheBrand.Presentation.Server.Data;
-using UnderTheBrand.Presentation.Server.Services;
-using UnderTheBrand.Presentation.Server.Services.Interfaces;
 
 namespace UnderTheBrand.Presentation.Server.Extensions
 {
@@ -25,8 +21,6 @@ namespace UnderTheBrand.Presentation.Server.Extensions
         private static void AddScoped(IServiceCollection services)
         {
             services.AddScoped<IPersonRepository, PersonRepository>();
-            services.AddScoped<IBaseService, BaseService>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         private static void AddSingleton(IServiceCollection services)

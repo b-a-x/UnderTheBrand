@@ -1,23 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UnderTheBrand.Domain.ValueObject.Helpers;
 using UnderTheBrand.Domain.ValueObject.Values;
-using UnderTheBrand.Presentation.Server.Controllers.Interfaces;
-using UnderTheBrand.Presentation.Server.Services.Interfaces;
 
 namespace UnderTheBrand.Presentation.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class BaseController : ControllerBase, IBaseController
+    public class BaseController : ControllerBase
     {
-        private readonly IBaseService _service;
         protected BaseController() { }
-        
-        public BaseController(IBaseService service) 
-        {
-            _service = service;
-        }
-
         protected new IActionResult Ok()
         {
             return base.Ok(Envelope.Ok());
