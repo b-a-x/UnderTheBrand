@@ -3,100 +3,72 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using PommaLabs.Thrower;
+using UnderTheBrand.Domain.Core.Interfaces;
 using UnderTheBrand.Domain.Entity.Base;
-using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Infrastructure.Dal.Context;
 
 namespace UnderTheBrand.Infrastructure.Dal.Repositories
 {
-    public class EntityRepository<T> : IEntityRepository<T> where T : Entity
+    public class EntityRepository<TEntity> : IEntityRepository<TEntity> where TEntity : Entity
     {
         protected readonly UnderTheBrandContext _context;
+        protected readonly DbSet<TEntity> _dbSet;
         protected EntityRepository() { }
 
         public EntityRepository(UnderTheBrandContext context)
-        {
-            Raise.ArgumentNullException.IfIsNull(context, nameof(context));
-            
+        { 
             _context = context;
+            _dbSet = _context.Set<TEntity>();
         }
         
-        public T Create(T entity)
+        public virtual TEntity Add(TEntity entity)
         {
-            Raise.ArgumentNullException.IfIsNull(entity, nameof(entity));
             entity.Id = new Guid();
             _context.ChangeTracker.AutoDetectChangesEnabled = false;
-            _context.Set<T>().Add(entity);
+            _dbSet.Add(entity);
             _context.ChangeTracker.AutoDetectChangesEnabled = true;
-            _context.SaveChanges();
             return entity;
         }
 
-        public async Task<T> CreateAsync(T entity)
+        public virtual async Task<TEntity> AddAsync(TEntity entity)
         {
-            Raise.ArgumentNullException.IfIsNull(entity, nameof(entity));
             entity.Id = new Guid();
             _context.ChangeTracker.AutoDetectChangesEnabled = false;
-            await _context.Set<T>().AddAsync(entity);
+            await _dbSet.AddAsync(entity);
             _context.ChangeTracker.AutoDetectChangesEnabled = true;
-            await _context.SaveChangesAsync();
             return entity;
         }
 
-        /// <summary>
-        /// Создать
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        public async Task<IReadOnlyCollection<T>> CreateRangeAsync(IReadOnlyCollection<T> entity)
+        public virtual async Task<IReadOnlyCollection<TEntity>> AddRangeAsync(IReadOnlyCollection<TEntity> entity)
         {
-            Raise.ArgumentNullException.IfIsNull(entity, nameof(entity));
             _context.ChangeTracker.AutoDetectChangesEnabled = false;
-            await _context.Set<T>().AddRangeAsync(entity);
+            await _dbSet.AddRangeAsync(entity);
             _context.ChangeTracker.AutoDetectChangesEnabled = true;
-            await _context.SaveChangesAsync();
             return entity;
         }
 
-        public IReadOnlyCollection<T> Read() => _context.Set<T>().AsNoTracking().ToList();
+        public virtual TEntity GetById(TEntity hasId) => _dbSet.Find(hasId.Id);
 
-        public async Task<IReadOnlyCollection<T>> ReadAsync() => await _context.Set<T>().AsNoTracking().ToListAsync();
+        public virtual async Task<TEntity> GetByIdAsync(TEntity hasId) => await _dbSet.FindAsync(hasId.Id);
 
-        public T Update(T entity)
+        public virtual IReadOnlyCollection<TEntity> GetAll() => _dbSet.AsNoTracking().ToList();
+
+        public virtual async Task<IReadOnlyCollection<TEntity>> GetAllAsync() => await _dbSet.AsNoTracking().ToListAsync();
+
+        public virtual TEntity Update(TEntity entity)
         {
-            Raise.ArgumentNullException.IfIsNull(entity, nameof(entity));
-
-            _context.Set<T>().Update(entity);
-            _context.SaveChanges();
+            _dbSet.Update(entity);
             return entity;
         }
 
-        public async Task<T> UpdateAsync(T entity)
+        public virtual void Remove(TEntity entity) => _dbSet.Remove(entity: _dbSet.Find(entity.Id));
+        
+        public int SaveChanges() =>_context.SaveChanges();
+
+        public void Dispose()
         {
-            Raise.ArgumentNullException.IfIsNull(entity, nameof(entity));
-
-            _context.Set<T>().Update(entity);
-            await _context.SaveChangesAsync();
-            return entity;
-        }
-
-        public bool Delete(T entity)
-        {
-            Raise.ArgumentNullException.IfIsNull(entity, nameof(entity));
-
-            _context.Set<T>().Remove(entity);
-            _context.SaveChanges();
-            return true;
-        }
-
-        public async Task<bool> DeleteAsync(T entity)
-        {
-            Raise.ArgumentNullException.IfIsNull(entity, nameof(entity));
-
-            _context.Set<T>().Remove(entity);
-            await _context.SaveChangesAsync();
-            return true;
+            _context.Dispose();
+            GC.SuppressFinalize(obj: this);
         }
     }
 }

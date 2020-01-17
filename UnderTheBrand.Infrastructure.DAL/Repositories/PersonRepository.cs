@@ -16,7 +16,7 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
         {
         }
 
-        public async Task<IReadOnlyCollection<Person>> GetList()
+        public async Task<IReadOnlyCollection<Person>> GetListSortPersonalName()
         {
             return await _context.Persons
                 .OrderBy(p => p.PersonalName.LastName.Value)

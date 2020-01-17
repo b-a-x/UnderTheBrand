@@ -9,13 +9,14 @@ namespace UnderTheBrand.Infrastructure.Dal.Context
         public UnderTheBrandContext(DbContextOptions<UnderTheBrandContext> options)
             : base(options)
         {
+            // TODO: Миграция?
             Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
             builder.ApplyConfiguration(new PersonConfiguration());
+            base.OnModelCreating(builder);
         }
 
         public DbSet<Person> Persons { get; set; }

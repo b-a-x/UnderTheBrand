@@ -21,7 +21,7 @@ namespace UnderTheBrand.Presentation.Server.Controllers
         public async Task<IActionResult> Get()
         {
             //TODO: ответ мапить в dto
-            return Ok(await _repository.GetList());
+            return Ok(await _repository.GetAllAsync());
         }
 
         [HttpPost(nameof(UpdatePerson))]
@@ -32,7 +32,8 @@ namespace UnderTheBrand.Presentation.Server.Controllers
             Result<Age> age = Age.Create(vm.Age);
             PersonalName personalName = new PersonalName(firstName.Value, lastName.Value);
             Person person = new Person(personalName, age.Value);
-            person = await _repository.CreateAsync(person);
+            person = await _repository.AddAsync(person);
+            _repository.SaveChanges();
             //TODO: ответ мапить в dto
             return Ok(person);
         }

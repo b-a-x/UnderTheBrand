@@ -28,7 +28,7 @@ namespace UnderTheBrand.Presentation.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<UnderTheBrandContext>(options =>
-                options.UseSqlite("Filename=Database_UnderTheBrand.db"));
+                options.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers()
                 .ConfigureApiBehaviorOptions(options =>
