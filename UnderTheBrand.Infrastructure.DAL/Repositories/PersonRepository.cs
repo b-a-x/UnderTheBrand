@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using UnderTheBrand.Domain.Core.Base;
+using UnderTheBrand.Domain.Core.Extensions;
 using UnderTheBrand.Domain.Entity.Entities;
 using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Infrastructure.Dal.Context;
@@ -23,6 +25,13 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
                 .ThenBy(p => p.PersonalName.FirstName.Value)
                 .AsNoTracking()
                 .ToListAsync();
+        }
+
+        public IReadOnlyCollection<Person> GetListSortId()
+        {
+            return _context.Persons
+                .AsNoTracking().
+                FilterAndSort(new PagedQuery<Person>()).ToArray();
         }
     }
 }

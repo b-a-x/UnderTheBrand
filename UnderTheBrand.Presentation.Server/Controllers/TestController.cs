@@ -55,5 +55,11 @@ namespace UnderTheBrand.Presentation.Server.Controllers
 
             return Ok(person);
         }
+        
+        [HttpGet("GetListSortId")]
+        public IActionResult GetListSortId()
+        {
+            return Ok(_repository.GetListSortId());
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UnderTheBrand.Domain.Core.Base;
 using UnderTheBrand.Domain.Core.Infrastructure;
 
 namespace UnderTheBrand.Domain.Core.Tests.Infrastructure
@@ -27,10 +26,6 @@ namespace UnderTheBrand.Domain.Core.Tests.Infrastructure
 
             // assert
             Assert.IsTrue(props.Length.Equals(1));
-        }
-
-        private class HasIdBaseTest : HasIdBase<string>
-        {
         }
     }
 }
