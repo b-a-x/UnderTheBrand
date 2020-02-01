@@ -3,12 +3,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UnderTheBrand.Domain.ValueObject.Helpers;
 using UnderTheBrand.Domain.ValueObject.Values;
-using UnderTheBrand.Infrastructure.Dal.Context;
 using UnderTheBrand.Presentation.Server.Extensions;
 using UnderTheBrand.Presentation.Server.Middleware;
 
@@ -27,9 +25,6 @@ namespace UnderTheBrand.Presentation.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<UnderTheBrandContext>(options =>
-                options.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
-
             services.AddControllers()
                 .ConfigureApiBehaviorOptions(options =>
                 {

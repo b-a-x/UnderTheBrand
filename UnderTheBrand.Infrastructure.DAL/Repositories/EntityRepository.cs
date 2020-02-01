@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -13,14 +14,13 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
     {
         protected readonly UnderTheBrandContext _context;
         protected readonly DbSet<TEntity> _dbSet;
-        protected EntityRepository() { }
 
-        public EntityRepository(UnderTheBrandContext context)
-        { 
-            _context = context;
+        protected EntityRepository()
+        {
+            _context = new UnderTheBrandContext();
             _dbSet = _context.Set<TEntity>();
         }
-        
+
         public virtual TEntity Add(TEntity entity)
         {
             entity.Id = Guid.NewGuid();
@@ -39,7 +39,7 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
             return entity;
         }
 
-        public virtual async Task<IReadOnlyCollection<TEntity>> AddRangeAsync(IReadOnlyCollection<TEntity> entity)
+        public virtual async Task<IReadOnlyCollection<TEntity>> AddRangeAsync([NotNull] IReadOnlyCollection<TEntity> entity)
         {
             _context.ChangeTracker.AutoDetectChangesEnabled = false;
             await _dbSet.AddRangeAsync(entity);

@@ -54,3 +54,4 @@
 /UnderTheBrand.Presentation.Server.Tests/obj
 /UnderTheBrand.Infrastructure.ViewModel/bin
 /UnderTheBrand.Presentation.Server.Tests/bin/Release/netcoreapp3.1
+/UnderTheBrand.Presentation.Server/Database_UnderTheBrand_300.db

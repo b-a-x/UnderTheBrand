@@ -12,6 +12,7 @@ namespace UnderTheBrand.Infrastructure.Dal.Configurations
 
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).IsRequired();
+            builder.HasIndex(p => p.Id).IsUnique();
 
             builder.OwnsOne(p => p.Age, a => {
                 a.Property(u => u.Value).HasColumnName("Age");

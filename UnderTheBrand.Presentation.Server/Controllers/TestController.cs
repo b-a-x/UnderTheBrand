@@ -4,6 +4,7 @@ using UnderTheBrand.Domain.Core.Infrastructure;
 using UnderTheBrand.Domain.Entity.Entities;
 using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Domain.ValueObject.Values;
+using UnderTheBrand.Infrastructure.Dal.InitializeDB;
 using UnderTheBrand.Infrastructure.ViewModel.Entities;
 
 namespace UnderTheBrand.Presentation.Server.Controllers
@@ -12,10 +13,12 @@ namespace UnderTheBrand.Presentation.Server.Controllers
     public class TestController : BaseController
     {
         private readonly IPersonRepository _repository;
-
-        public TestController(IPersonRepository repository)
+        private readonly IManagerInitialize _manager;
+        
+        public TestController(IPersonRepository repository, IManagerInitialize manager)
         {
             _repository = repository;
+            _manager = manager;
         }
 
         [HttpGet("Get")]
@@ -60,6 +63,14 @@ namespace UnderTheBrand.Presentation.Server.Controllers
         public IActionResult GetListSortId()
         {
             return Ok(_repository.GetListSortId());
+        }
+
+        [HttpGet("Initialize")]
+        public IActionResult Initialize()
+        {
+            _manager.Initialize();
+
+            return Ok();
         }
     }
 }

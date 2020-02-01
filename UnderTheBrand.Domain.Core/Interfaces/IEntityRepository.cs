@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 namespace UnderTheBrand.Domain.Core.Interfaces
@@ -25,7 +26,7 @@ namespace UnderTheBrand.Domain.Core.Interfaces
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<IReadOnlyCollection<TEntity>> AddRangeAsync(IReadOnlyCollection<TEntity> entity);
+        Task<IReadOnlyCollection<TEntity>> AddRangeAsync([NotNull] IReadOnlyCollection<TEntity> entity);
 
         /// <summary>
         /// Получить сущность по id
