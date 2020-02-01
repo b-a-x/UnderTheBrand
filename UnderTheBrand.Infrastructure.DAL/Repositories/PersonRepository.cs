@@ -14,10 +14,6 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
     {
         protected PersonRepository() { }
 
-        public PersonRepository(UnderTheBrandContext context) : base(context)
-        {
-        }
-
         public async Task<IReadOnlyCollection<Person>> GetListSortPersonalName()
         {
             return await _context.Persons
@@ -29,9 +25,7 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
 
         public IReadOnlyCollection<Person> GetListSortId()
         {
-            return _context.Persons
-                .AsNoTracking().
-                FilterAndSort(new PagedQuery<Person>()).ToArray();
+            return _context.Persons.AsNoTracking().FilterAndSort(new PagedQuery<Person>()).ToArray();
         }
     }
 }
