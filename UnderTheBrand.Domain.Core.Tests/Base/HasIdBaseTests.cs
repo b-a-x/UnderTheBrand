@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UnderTheBrand.Domain.Core.Base;
 using UnderTheBrand.Domain.Core.Extensions;
 using UnderTheBrand.Domain.Core.Interfaces;
 
@@ -9,12 +8,12 @@ namespace UnderTheBrand.Domain.Core.Tests.Base
     [TestClass]
     public class HasIdBaseTests
     {
-        private readonly string _id;
+        private readonly Guid _id;
         private readonly HasIdBaseTest _hasId;
 
         public HasIdBaseTests()
         {
-            _id = Guid.NewGuid().ToString();
+            _id = Guid.NewGuid();
             _hasId = new HasIdBaseTest();
         }
 
@@ -68,16 +67,12 @@ namespace UnderTheBrand.Domain.Core.Tests.Base
         {
             // arrange
             _hasId.Id = _id;
-            var newHasId = new HasIdBaseTest { Id = Guid.NewGuid().ToString() };
+            var newHasId = new HasIdBaseTest { Id = Guid.NewGuid() };
             // act
 
             // assert
             Assert.IsFalse(_hasId.Equals(newHasId));
             Assert.IsTrue(_hasId != newHasId);
-        }
-        
-        private class HasIdBaseTest : HasIdBase<string>
-        {
         }
     }
 }
