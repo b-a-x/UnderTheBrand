@@ -10,7 +10,7 @@ using UnderTheBrand.Domain.ValueObject.Helpers;
 using UnderTheBrand.Domain.ValueObject.Values;
 using UnderTheBrand.Infrastructure.Dal.Context;
 using UnderTheBrand.Presentation.Server.Extensions;
-using UnderTheBrand.Presentation.Server.Middlewares;
+using UnderTheBrand.Presentation.Server.Middleware;
 
 namespace UnderTheBrand.Presentation.Server
 {
@@ -43,10 +43,10 @@ namespace UnderTheBrand.Presentation.Server
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        { 
-            //TODO: Научиться читать стримы
-            //app.UseMiddleware<RequestResponseLoggingMiddleware>();
-            app.UseMiddleware<ErrorHandlingMiddleware>();
+        {
+            app.UseMiddleware<LogRequestMiddleware>();
+            app.UseMiddleware<LogErrorMiddleware>();
+            app.UseMiddleware<LogResponseMiddleware>();
             app.UseStaticFiles();
             //app.UseHttpsRedirection();
             app.UseRouting();

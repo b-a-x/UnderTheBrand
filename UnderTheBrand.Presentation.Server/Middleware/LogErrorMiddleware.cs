@@ -6,17 +6,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using UnderTheBrand.Domain.ValueObject.Values;
 
-namespace UnderTheBrand.Presentation.Server.Middlewares
+namespace UnderTheBrand.Presentation.Server.Middleware
 {
     // TODO: тест
-    public class ErrorHandlingMiddleware
+    public class LogErrorMiddleware
     {
         private const string _internalServerError = "Internal Server Error";
         private const string _innerException = "Internal Server Error (Inner Exception)";
         private readonly RequestDelegate _next;
-        private readonly ILogger<ErrorHandlingMiddleware> _logger;
+        private readonly ILogger<LogErrorMiddleware> _logger;
 
-        public ErrorHandlingMiddleware(RequestDelegate next, ILogger<ErrorHandlingMiddleware> logger)
+        public LogErrorMiddleware(RequestDelegate next, ILogger<LogErrorMiddleware> logger)
         {
             _next = next;
             _logger = logger;
