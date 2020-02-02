@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using UnderTheBrand.Domain.Model.Values;
+using UnderTheBrand.Infrastructure.Core.Extensions;
 
 namespace UnderTheBrand.Presentation.Server.Middleware
 {
@@ -36,10 +37,10 @@ namespace UnderTheBrand.Presentation.Server.Middleware
         
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
-            _logger.LogError(exception, _internalServerError);
+            _logger.Error(_internalServerError, exception);
             if (exception is AggregateException aex && aex.InnerExceptions?.Count > 0)
                 foreach (Exception aexInnerException in aex.InnerExceptions)
-                    _logger.LogError(aexInnerException, _innerException);
+                    _logger.Error(_innerException, aexInnerException);
 
 
             var error = new Error(HttpStatusCode.InternalServerError.ToString(), exception.Message);

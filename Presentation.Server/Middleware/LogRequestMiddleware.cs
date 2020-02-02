@@ -1,8 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.Logging;
+using UnderTheBrand.Infrastructure.Core.Extensions;
 
 namespace UnderTheBrand.Presentation.Server.Middleware
 {
@@ -27,8 +31,7 @@ namespace UnderTheBrand.Presentation.Server.Middleware
 
             string url = context.Request.GetDisplayUrl();
             string requestBodyText = new StreamReader(requestBodyStream).ReadToEnd();
-            _logger.LogInformation( $"REQUEST URL: {url}, REQUEST METHOD: {context.Request.Method}, REQUEST BODY: {requestBodyText}");
-
+            _logger.Information($"REQUEST URL: {url}, REQUEST METHOD: {context.Request.Method}, REQUEST BODY: {requestBodyText}");
             requestBodyStream.Seek(0, SeekOrigin.Begin);
             context.Request.Body = requestBodyStream;
 

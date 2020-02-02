@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using UnderTheBrand.Infrastructure.Core.Extensions;
 
 namespace UnderTheBrand.Presentation.Server.Middleware
 {
@@ -22,7 +20,6 @@ namespace UnderTheBrand.Presentation.Server.Middleware
         public async Task Invoke(HttpContext context)
         {
             Stream bodyStream = context.Response.Body;
-
             var responseBodyStream = new MemoryStream();
             context.Response.Body = responseBodyStream;
 
@@ -30,7 +27,7 @@ namespace UnderTheBrand.Presentation.Server.Middleware
 
             responseBodyStream.Seek(0, SeekOrigin.Begin);
             var responseBody = new StreamReader(responseBodyStream).ReadToEnd();
-            _logger.LogInformation($"RESPONSE LOG: {responseBody}");
+            _logger.Information($"RESPONSE LOG: {responseBody}");
             responseBodyStream.Seek(0, SeekOrigin.Begin);
             await responseBodyStream.CopyToAsync(bodyStream);
         }
