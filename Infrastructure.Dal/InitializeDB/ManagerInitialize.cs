@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnderTheBrand.Domain.Model.Entities;
 using UnderTheBrand.Domain.Model.Values;
 using UnderTheBrand.Infrastructure.Dal.Context;
@@ -30,9 +31,7 @@ namespace UnderTheBrand.Infrastructure.Dal.InitializeDB
                 _listPersons.Add(new Person(personalName, age.Value) { Id = Guid.NewGuid() });
             }
 
-            //Parallel.For(0, _totalCount / _takeCount, new ParallelOptions {MaxDegreeOfParallelism = 4}, AddRange);
-            for (int i = 0; i < _totalCount / _takeCount; i++)
-                AddRange(i);
+            Parallel.For(0, _totalCount / _takeCount, new ParallelOptions {MaxDegreeOfParallelism = 4}, AddRange);
         }
 
         private void AddRange(int i)
