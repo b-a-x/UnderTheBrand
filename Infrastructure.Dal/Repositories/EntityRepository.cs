@@ -23,7 +23,7 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
 
         public virtual TEntity Add(TEntity entity)
         {
-            entity.Id = Guid.NewGuid();
+            //entity.Id = Guid.NewGuid();
             _context.ChangeTracker.AutoDetectChangesEnabled = false;
             _dbSet.Add(entity);
             _context.ChangeTracker.AutoDetectChangesEnabled = true;
@@ -32,7 +32,7 @@ namespace UnderTheBrand.Infrastructure.Dal.Repositories
 
         public virtual async Task<TEntity> AddAsync(TEntity entity)
         {
-            entity.Id = Guid.NewGuid();
+            //entity.Id = Guid.NewGuid();
             _context.ChangeTracker.AutoDetectChangesEnabled = false;
             await _dbSet.AddAsync(entity);
             _context.ChangeTracker.AutoDetectChangesEnabled = true;

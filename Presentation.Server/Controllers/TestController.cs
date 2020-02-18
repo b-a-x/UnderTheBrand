@@ -80,5 +80,17 @@ namespace UnderTheBrand.Presentation.Server.Controllers
 
             return Ok();
         }
+
+        [HttpGet("FilterSortAndPaginate")]
+        public IActionResult FilterSortAndPaginate()
+        {
+            return Ok(_repository.FilterSortAndPaginate());
+        }
+
+        [HttpGet("GetList")]
+        public IActionResult GetList()
+        {
+            return Ok(_repository.GetList());
+        }
     }
 }

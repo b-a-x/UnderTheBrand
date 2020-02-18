@@ -10,15 +10,15 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-nanoserver-1803 AS build
 WORKDIR /src
-COPY ["Presentation.Server/Presentation.Server.csproj", "Presentation.Server/"]
-COPY ["Infrastructure.Dal/Infrastructure.Dal.csproj", "Infrastructure.Dal/"]
-COPY ["Domain.Interfaces/Domain.Interfaces.csproj", "Domain.Interfaces/"]
-COPY ["Domain.Model/Domain.Model.csproj", "Domain.Model/"]
-COPY ["Domain.Core/Domain.Core.csproj", "Domain.Core/"]
-COPY ["Infrastructure.Core/Infrastructure.Core.csproj", "Infrastructure.Core/"]
-RUN dotnet restore "Presentation.Server/Presentation.Server.csproj"
+COPY "Presentation.Server.csproj" "Presentation.Server.csproj"
+#COPY "Infrastructure.Dal/Infrastructure.Dal.csproj" "Presentation.Server/Infrastructure.Dal.csproj"
+#COPY "Domain.Interfaces/Domain.Interfaces.csproj" "Domain.Interfaces/Domain.Interfaces.csproj"
+#COPY "Domain.Model/Domain.Model.csproj" "Domain.Model/Domain.Model.csproj"
+#COPY "Domain.Core/Domain.Core.csproj" "Domain.Core/Domain.Core.csproj"
+#COPY "Infrastructure.Core/Infrastructure.Core.csproj" "Infrastructure.Core/Infrastructure.Core.csproj"
+RUN dotnet restore "Presentation.Server.csproj"
 COPY . .
-WORKDIR "/src/Presentation.Server"
+WORKDIR "/src"
 RUN dotnet build "Presentation.Server.csproj" -c Release -o /app/build
 
 FROM build AS publish

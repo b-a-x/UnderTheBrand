@@ -77,3 +77,5 @@
 /Presentation.Server/obj
 /Presentation.Server/Database_UnderTheBrand.db
 /Presentation.Server/Database_UnderTheBrand_300.db
+/Presentation.Server/Database_UnderTheBrand.db-shm
+/Presentation.Server/Database_UnderTheBrand.db-wal

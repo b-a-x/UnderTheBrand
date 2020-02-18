@@ -28,7 +28,7 @@ namespace UnderTheBrand.Infrastructure.Dal.InitializeDB
                 Result<Name> lastName = Name.Create("LocationStatus");
                 Result<Age> age = Age.Create(10);
                 PersonalName personalName = new PersonalName(firstName.Value, lastName.Value);
-                _listPersons.Add(new Person(personalName, age.Value) { Id = Guid.NewGuid() });
+                _listPersons.Add(new Person(personalName, age.Value) { Id = Guid.NewGuid().ToString() });
             }
 
             Parallel.For(0, _totalCount / _takeCount, new ParallelOptions {MaxDegreeOfParallelism = 4}, AddRange);
