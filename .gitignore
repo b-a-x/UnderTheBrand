@@ -79,3 +79,11 @@
 /Presentation.Server/Database_UnderTheBrand_300.db
 /Presentation.Server/Database_UnderTheBrand.db-shm
 /Presentation.Server/Database_UnderTheBrand.db-wal
+/Web/Client/bin
+/Web/Client/obj
+/Web/Server/bin
+/Web/Server/Logs
+/Web/Server/obj
+/Web/Server/Database_UnderTheBrand.db
+/Web.Shared/bin
+/Web.Shared/obj
