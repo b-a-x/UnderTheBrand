@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
 namespace UnderTheBrand.Presentation.Web.Server.Middleware
@@ -18,6 +18,7 @@ namespace UnderTheBrand.Presentation.Web.Server.Middleware
 
         public async Task Invoke(HttpContext context)
         {
+            //TODO: читать ответы с уровнем логировнаия Info
             Stream bodyStream = context.Response.Body;
             var responseBodyStream = new MemoryStream();
             context.Response.Body = responseBodyStream;

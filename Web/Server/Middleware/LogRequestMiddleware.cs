@@ -19,6 +19,7 @@ namespace UnderTheBrand.Presentation.Web.Server.Middleware
 
         public async Task Invoke(HttpContext context)
         {
+            //TODO: Читать запросы с уровнем логирования info
             var requestBodyStream = new MemoryStream();
             Stream originalRequestBody = context.Request.Body;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using UnderTheBrand.Infrastructure.Web.Shared;
+using UnderTheBrand.Presentation.Web.Shared;
 
 namespace UnderTheBrand.Presentation.Web.Server.Controllers
 {

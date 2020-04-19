@@ -1,5 +1,5 @@
-﻿@page "/fetchdata"
-@using UnderTheBrand.Infrastructure.Web.Shared;
+@page "/fetchdata"
+@using Web.Shared
 @inject HttpClient Http
 
 <h1>Weather forecast</h1>
@@ -40,7 +40,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetJsonAsync<WeatherForecast[]>("WeatherForecast");
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
     }
 
 }
