@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace UnderTheBrand.Domain.Model.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
     public sealed class City : Core.Base.ValueObject
     {

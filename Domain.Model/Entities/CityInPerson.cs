@@ -1,5 +1,5 @@
 ﻿using System;
-using UnderTheBrand.Domain.Model.Values;
+using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Model.Entities
 {
@@ -13,8 +13,8 @@ namespace UnderTheBrand.Domain.Model.Entities
             Person = person ?? throw new ArgumentNullException(nameof(person));
         }
 
-        public City City { get; protected set; }
+        public City City { get; }
 
-        public Person Person { get; protected set; }
+        public Person Person { get; }
     }
 }

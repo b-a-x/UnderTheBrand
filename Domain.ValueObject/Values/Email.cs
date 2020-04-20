@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-
-namespace UnderTheBrand.Domain.Model.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
     public class Email : Core.Base.ValueObject
     {

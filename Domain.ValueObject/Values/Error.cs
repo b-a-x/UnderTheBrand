@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnderTheBrand.Domain.Model.Utils;
+using UnderTheBrand.Domain.ValueObject.Utils;
 
-namespace UnderTheBrand.Domain.Model.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
     public sealed class Error : Core.Base.ValueObject
     {
@@ -34,7 +34,7 @@ namespace UnderTheBrand.Domain.Model.Values
                 StringSplitOptions.RemoveEmptyEntries);
 
             if (data.Length < 2)
-              //    throw new ArgumentNullException($"Invalid error serialization: '{serialized}'");}
+                //    throw new ArgumentNullException($"Invalid error serialization: '{serialized}'");}
             {
                 return Errors.General.SystemValueIsInvalid(data[0]);
             }

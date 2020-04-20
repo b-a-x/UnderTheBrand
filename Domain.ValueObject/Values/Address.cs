@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace UnderTheBrand.Domain.Model.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
-    public  class Address : Core.Base.ValueObject
+    public class Address : Core.Base.ValueObject
     {
         protected Address() { }
 
@@ -13,9 +13,9 @@ namespace UnderTheBrand.Domain.Model.Values
             Comment = comment;
         }
 
-        public string Street { get;  }
-        public int ZipCode { get;  }
-        public string Comment { get;  }
+        public string Street { get; }
+        public int ZipCode { get; }
+        public string Comment { get; }
 
         public static Result<Address> Create(string street, int zipCode, string comment)
         {

@@ -1,6 +1,6 @@
-﻿using UnderTheBrand.Domain.Model.Values;
+﻿using UnderTheBrand.Domain.ValueObject.Values;
 
-namespace UnderTheBrand.Domain.Model.Utils
+namespace UnderTheBrand.Domain.ValueObject.Utils
 {
     public static class Errors
     {
@@ -11,7 +11,7 @@ namespace UnderTheBrand.Domain.Model.Utils
         }
         public static class Person
         {
-            public static Error NameIsTaken(string name) => 
+            public static Error NameIsTaken(string name) =>
                 new Error("person.name.is.taken", $"Student name '{name}' is taken");
         }
 

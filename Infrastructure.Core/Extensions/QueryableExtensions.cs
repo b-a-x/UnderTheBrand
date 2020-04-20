@@ -5,7 +5,7 @@ using UnderTheBrand.Domain.Core.Base;
 using UnderTheBrand.Domain.Core.Interfaces;
 using UnderTheBrand.Infrastructure.Core.Base;
 
-namespace UnderTheBrand.Domain.Core.Extensions
+namespace UnderTheBrand.Infrastructure.Core.Extensions
 {
     public static class QueryableExtensions
     {

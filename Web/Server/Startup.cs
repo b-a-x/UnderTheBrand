@@ -6,8 +6,11 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using UnderTheBrand.Domain.Model.Utils;
-using UnderTheBrand.Domain.Model.Values;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using UnderTheBrand.Domain.ValueObject.Utils;
+using UnderTheBrand.Domain.ValueObject.Values;
+using UnderTheBrand.Infrastructure.Dal.Context;
 using UnderTheBrand.Presentation.Web.Server.Extensions;
 using UnderTheBrand.Presentation.Web.Server.Middleware;
 
@@ -15,10 +18,17 @@ namespace UnderTheBrand.Presentation.Web.Server
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        private readonly IConfiguration _configuration;
+
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationContext>(o => 
+                o.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers()
                 .ConfigureApiBehaviorOptions(options =>
                 {
