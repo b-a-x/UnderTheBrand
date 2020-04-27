@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using UnderTheBrand.Domain.Model.Utils;
-using UnderTheBrand.Domain.Model.Values;
+using UnderTheBrand.Domain.ValueObject.Utils;
+using UnderTheBrand.Domain.ValueObject.Values;
 
-namespace UnderTheBrand.Domain.Model.ValidationAttributes
+namespace UnderTheBrand.Domain.ValueObject.ValidationAttributes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class NameAttribute : ValidationAttribute

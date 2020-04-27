@@ -87,5 +87,9 @@
 /Web/Server/Database_UnderTheBrand.db
 /Web.Shared/bin
 /Web.Shared/obj
+/Domain.ValueObject/bin
+/Domain.ValueObject/obj
+/Infrastructure.Core.Tests/bin
+/Infrastructure.Core.Tests/obj
 /Web/Shared/bin
 /Web/Shared/obj

@@ -1,7 +1,7 @@
 ﻿using System;
-using UnderTheBrand.Domain.Model.Values;
+using UnderTheBrand.Domain.ValueObject.Values;
 
-namespace UnderTheBrand.Domain.Model.Utils
+namespace UnderTheBrand.Domain.ValueObject.Utils
 {
     public class Envelope<T>
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using UnderTheBrand.Domain.Model.Utils;
-using UnderTheBrand.Domain.Model.Values;
+using UnderTheBrand.Domain.ValueObject.Utils;
+using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Presentation.Web.Server.Controllers
 {

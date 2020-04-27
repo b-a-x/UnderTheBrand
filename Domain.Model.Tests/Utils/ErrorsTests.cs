@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UnderTheBrand.Domain.Model.Utils;
-using UnderTheBrand.Domain.Model.Values;
+using UnderTheBrand.Domain.ValueObject.Utils;
+using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Model.Tests.Utils
 {

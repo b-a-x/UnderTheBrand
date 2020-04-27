@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnderTheBrand.Domain.Model.Entities;
-using UnderTheBrand.Domain.Model.Values;
+using UnderTheBrand.Domain.ValueObject.Values;
 using UnderTheBrand.Infrastructure.Dal.Context;
 
 namespace UnderTheBrand.Infrastructure.Dal.InitializeDB
@@ -12,9 +12,14 @@ namespace UnderTheBrand.Infrastructure.Dal.InitializeDB
     {
         private readonly int _totalCount = 1000000;
         private readonly int _takeCount = 50;
-        private readonly object _lock = new object();
         private readonly List<Person> _listPersons = new List<Person>();
-        
+        private readonly ApplicationContext _context;
+
+        public ManagerInitialize(ApplicationContext context)
+        {
+            _context = context;
+        }
+
         public void Initialize()
         {
             InitializePerson();
@@ -36,9 +41,8 @@ namespace UnderTheBrand.Infrastructure.Dal.InitializeDB
 
         private void AddRange(int i)
         {
-            using var context = new UnderTheBrandContext();
-            context.Persons.AddRange(_listPersons.Skip(i * _takeCount).Take(_takeCount));
-            context.SaveChanges();
+            _context.Persons.AddRange(_listPersons.Skip(i * _takeCount).Take(_takeCount));
+            _context.SaveChanges();
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using UnderTheBrand.Domain.Model.Utils;
+using UnderTheBrand.Domain.ValueObject.Utils;
 
-namespace UnderTheBrand.Domain.Model.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
     /// <summary>
     /// Имя

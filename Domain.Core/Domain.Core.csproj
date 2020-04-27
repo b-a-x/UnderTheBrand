@@ -6,8 +6,4 @@
     <RootNamespace>UnderTheBrand.Domain.Core</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Infrastructure.Core\Infrastructure.Core.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,19 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using UnderTheBrand.Domain.Core.Base;
-using UnderTheBrand.Domain.Core.Interfaces;
-using UnderTheBrand.Domain.Model.Entities;
+﻿using UnderTheBrand.Domain.Core.Base;
+using UnderTheBrand.Domain.Interfaces.Entity;
 
 namespace UnderTheBrand.Domain.Interfaces.Repositories
 {
-    public interface IPersonRepository : IRepository<Person>
+    public interface IPersonRepository
     {
-        Task<IReadOnlyCollection<Person>> GetListSortPersonalName();
-
-        IReadOnlyCollection<Person> GetListSortId();
-
-        PagedResponse<Person> FilterSortAndPaginate();
-
-        PagedResponse<Person> GetList();
+        PagedResponse<IPerson> GetList();
     }
 }

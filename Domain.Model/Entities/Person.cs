@@ -1,9 +1,10 @@
 ﻿using System;
-using UnderTheBrand.Domain.Model.Values;
+using UnderTheBrand.Domain.Interfaces.Entity;
+using UnderTheBrand.Domain.ValueObject.Values;
 
 namespace UnderTheBrand.Domain.Model.Entities
 {
-    public class Person : Base.Entity
+    public class Person : Base.Entity, IPerson
     {
         protected Person() { }
 
@@ -13,9 +14,9 @@ namespace UnderTheBrand.Domain.Model.Entities
             PersonalName = personalName ?? throw new ArgumentNullException(nameof(personalName));
         }
 
-        public PersonalName PersonalName { get; set; }
+        public PersonalName PersonalName { get; }
 
-        public Age Age { get; set; }
+        public Age Age { get; }
 
         /*private List<CityInPerson> _cities;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UnderTheBrand.Domain.Model.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
     /// <summary>
     /// Личное имя
@@ -19,7 +19,7 @@ namespace UnderTheBrand.Domain.Model.Values
         public Name FirstName { get; }
 
         public Name LastName { get; }
-        
+
         public string FullName => $"{FirstName.Value} {LastName.Value}";
 
         protected override IEnumerable<object> GetEqualityComponents()

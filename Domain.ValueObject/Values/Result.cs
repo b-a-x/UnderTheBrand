@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UnderTheBrand.Domain.Model.Values
+namespace UnderTheBrand.Domain.ValueObject.Values
 {
     public class Result : Core.Base.ValueObject
     {
-        public bool Success { get; private set; }
-        public Error Error { get; private set; }
+        public bool Success { get; }
+        public Error Error { get; }
 
         public bool Failure => !Success;
 
@@ -19,7 +19,7 @@ namespace UnderTheBrand.Domain.Model.Values
                 throw new ArgumentNullException();
 
             Success = success;
-            Error = new Error("",error);
+            Error = new Error("", error);
         }
 
         protected Result(bool success, Error error)
@@ -40,7 +40,7 @@ namespace UnderTheBrand.Domain.Model.Values
 
         public static Result<T> Fail<T>(Error error)
         {
-            return new Result<T>(default,false, error);
+            return new Result<T>(default, false, error);
         }
 
         public static Result Ok()

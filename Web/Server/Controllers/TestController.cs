@@ -1,10 +1,16 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using UnderTheBrand.Domain.Core.Base;
+using UnderTheBrand.Domain.Interfaces.Entity;
 using UnderTheBrand.Domain.Interfaces.Repositories;
 using UnderTheBrand.Domain.Model.Entities;
-using UnderTheBrand.Domain.Model.ValidationAttributes;
-using UnderTheBrand.Domain.Model.Values;
+using UnderTheBrand.Domain.ValueObject.ValidationAttributes;
+using UnderTheBrand.Domain.ValueObject.Values;
+using UnderTheBrand.Infrastructure.Core.Extensions;
 using UnderTheBrand.Infrastructure.Core.Utils;
+using UnderTheBrand.Infrastructure.Dal.Context;
 using UnderTheBrand.Infrastructure.Dal.InitializeDB;
 
 namespace UnderTheBrand.Presentation.Web.Server.Controllers
@@ -14,9 +20,13 @@ namespace UnderTheBrand.Presentation.Web.Server.Controllers
     {
         private readonly IPersonRepository _repository;
         private readonly IManagerInitialize _manager;
+        private readonly ApplicationContext _context;
 
-        public TestController(IPersonRepository repository, IManagerInitialize manager)
+        public TestController(IPersonRepository repository, 
+                              IManagerInitialize manager, 
+                              ApplicationContext context)
         {
+            _context = context;
             _repository = repository;
             _manager = manager;
         }
@@ -25,12 +35,13 @@ namespace UnderTheBrand.Presentation.Web.Server.Controllers
         public async Task<IActionResult> Get()
         {
             //TODO: ответ мапить в dto
-            return Ok(await _repository.GetAllAsync());
+            return Ok(await _context.Persons.ToArrayAsync());
         }
 
         public class PersonViewModel
         {
-            [Name] public string FirstName { get; set; }
+            [Name] 
+            public string FirstName { get; set; }
             public string LastName { get; set; }
             public int Age { get; set; }
         }
@@ -43,8 +54,8 @@ namespace UnderTheBrand.Presentation.Web.Server.Controllers
             Result<Age> age = Age.Create(vm.Age);
             PersonalName personalName = new PersonalName(firstName.Value, lastName.Value);
             Person person = new Person(personalName, age.Value);
-            person = await _repository.AddAsync(person);
-            _repository.SaveChanges();
+            await _context.Persons.AddAsync(person);
+            _context.SaveChanges();
             //TODO: ответ мапить в dto
             return Ok(person);
         }
@@ -69,7 +80,7 @@ namespace UnderTheBrand.Presentation.Web.Server.Controllers
         [HttpGet("GetListSortId")]
         public IActionResult GetListSortId()
         {
-            return Ok(_repository.GetListSortId());
+            return Ok(_context.Persons.AsNoTracking().FilterAndSort(new PagedQuery<IPerson>()).ToArray());
         }
 
         [HttpGet("Initialize")]
@@ -83,7 +94,10 @@ namespace UnderTheBrand.Presentation.Web.Server.Controllers
         [HttpGet("FilterSortAndPaginate")]
         public IActionResult FilterSortAndPaginate()
         {
-            return Ok(_repository.FilterSortAndPaginate());
+            return Ok(_context.Persons.AsNoTracking().FilterSortAndPaginate(new PagedQuery<IPerson>
+            {
+                Paging = new Paging(1, 5)
+            }));
         }
 
         [HttpGet("GetList")]

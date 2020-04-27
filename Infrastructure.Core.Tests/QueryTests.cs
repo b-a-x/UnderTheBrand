@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UnderTheBrand.Domain.Core.Base;
-using UnderTheBrand.Domain.Core.Extensions;
+using UnderTheBrand.Infrastructure.Core.Extensions;
 
-namespace UnderTheBrand.Domain.Core.Tests
+namespace Infrastructure.Core.Tests
 {
     [TestClass]
     public class QueryTests
@@ -44,7 +44,7 @@ namespace UnderTheBrand.Domain.Core.Tests
 
 
             // assert
-            Assert.IsTrue(guidLast.CompareTo(guidFirst) == -1 );
+            Assert.IsTrue(guidLast.CompareTo(guidFirst) == -1);
         }
     }
 }

@@ -4,19 +4,13 @@ using UnderTheBrand.Infrastructure.Dal.Configurations;
 
 namespace UnderTheBrand.Infrastructure.Dal.Context
 {
-    public sealed class UnderTheBrandContext : DbContext
+    public sealed class ApplicationContext : DbContext
     {
-        private readonly string _fileName = "Filename=Database_UnderTheBrand.db";
-        internal UnderTheBrandContext()
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+            : base(options)
         {
             // TODO: Миграция?
             Database.EnsureCreated();
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite(_fileName);
-            base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -25,6 +19,6 @@ namespace UnderTheBrand.Infrastructure.Dal.Context
             base.OnModelCreating(builder);
         }
 
-        internal DbSet<Person> Persons { get; set; }
+        public DbSet<Person> Persons { get; set; }
     }
 }
