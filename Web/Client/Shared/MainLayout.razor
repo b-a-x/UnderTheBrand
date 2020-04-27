@@ -3,6 +3,105 @@
     <NavBar />
 </header>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" style="margin-bottom: 16px">
+            <div class="row">
+                <div class="col-md-6" style="margin-bottom: 16px">
+
+                    <nav class="navbar pl-4 navbar-light navbar-expand-sm" role="navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top_tree" aria-controls="top_tree" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="top_tree">
+                            <ul class="nav flex-column flex-row">
+                                <h4 class="navbar-brand">#...HashTag</h4>
+                                <RadzenTree Expand="@LogExpand" Change="@LogChange" Data="@GetCategory()" Style="width: 100%; height: 100%">
+                                    <RadzenTreeLevel TextProperty="CategoryName" ChildrenProperty="Products">
+                                        <Template>
+                                            <strong>@((context.Value as Category).CategoryName)</strong>
+                                        </Template>
+                                    </RadzenTreeLevel>
+                                    <RadzenTreeLevel TextProperty="ProductName" HasChildren="@((product) => false)" />
+                                </RadzenTree>
+                            </ul>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code
+{
+    public readonly Dictionary<DateTime, string> Events = new Dictionary<DateTime, string>();
+
+    IReadOnlyCollection<Category> GetCategory()
+    {
+        var result = new List<Category>
+{
+            new Category {CategoryName = "Одежда", Products = new List<Product>
+    {
+                new Product{ProductName = "Конструктор одежды"},
+                new Product{ProductName = "Дизайнер одежды"}
+            }},
+            new Category {CategoryName = "Медиа", Products =  new List<Product>
+    {
+                new Product{ProductName = "Блоггер"},
+                new Product{ProductName = "Рендер"}
+            }},
+            new Category {CategoryName = "Разработка ПО", Products =  new List<Product>
+    {
+                new Product{ProductName = "Developer C#"},
+                new Product{ProductName = "Developer angular"}
+            }},
+            new Category {CategoryName = "Общее", Products =  new List<Product>
+    {
+                new Product{ProductName = "Водитель"},
+                new Product{ProductName = "Охранник"}
+            }}
+        };
+        return result;
+    }
+
+    void LogExpand(TreeExpandEventArgs args)
+    {
+        if (args.Value is Category category)
+        {
+            Log("Expand", $"Text: {category.CategoryName}");
+        }
+
+        if (args.Value is string text)
+        {
+            Log("Expand", $"Text: {text}");
+        }
+    }
+
+    void LogChange(TreeEventArgs args)
+    {
+        Log("Change", $"Item Text: {args.Text}");
+    }
+
+    void Log(string eventName, string value)
+    {
+        Events.Add(DateTime.Now, $"{eventName}: {value}");
+    }
+
+    public class Category
+    {
+        public string CategoryName { get; set; }
+        public IReadOnlyCollection<Product> Products { get; set; }
+    }
+
+    public class Product
+    {
+        public string ProductName { get; set; }
+    }
+}
+
 <!--
 <div class="main">
     <div class="top-row px-4">
