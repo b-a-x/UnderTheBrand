@@ -2,9 +2,11 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    min-width: 320px;
 }
 
-a, .btn-link {
+/*a, .btn-link {
     color: #0366d6;
 }
 
@@ -177,7 +179,11 @@ app {
     }
 
     .sidebar .collapse {
-        /* Never collapse the sidebar for wide screens */
         display: block;
     }
 }
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+*/

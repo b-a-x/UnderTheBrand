@@ -37,12 +37,12 @@ namespace UnderTheBrand.Presentation.Web.Server.Middleware
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             _logger.LogError(_internalServerError, exception);
-            if (exception is AggregateException aex && aex.InnerExceptions?.Count > 0)
+            if (exception is AggregateException aex && aex.InnerExceptions.Count > 0)
                 foreach (Exception aexInnerException in aex.InnerExceptions)
                     _logger.LogError(_innerException, aexInnerException);
 
 
-            var error = new Error(HttpStatusCode.InternalServerError.ToString(), exception.Message);
+            var error = new Error(nameof(HttpStatusCode.InternalServerError), exception.Message);
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             return context.Response.WriteAsync(JsonSerializer.Serialize(error));
         }

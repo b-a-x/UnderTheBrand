@@ -1,9 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <AssemblyName>Web.Shared</AssemblyName>
-    <RootNamespace>UnderTheBrand.Infrastructure.Web.Shared</RootNamespace>
-  </PropertyGroup>
-
-</Project>

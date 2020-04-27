@@ -91,3 +91,5 @@
 /Domain.ValueObject/obj
 /Infrastructure.Core.Tests/bin
 /Infrastructure.Core.Tests/obj
+/Web/Shared/bin
+/Web/Shared/obj

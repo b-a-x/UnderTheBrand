@@ -14,16 +14,14 @@ namespace UnderTheBrand.Presentation.Web.Server
             CreateHostBuilder(args).Build().Run();
         }
 
-        private static IHostBuilder CreateHostBuilder(string[] args)
-        {
-            return Host.CreateDefaultBuilder(args)
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
                 .ConfigureLogging((context, logging) => { logging.AddFile(); })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseUrls(GetUrls());
                     webBuilder.UseStartup<Startup>();
                 });
-        }
 
         private static string GetUrls()
         {
