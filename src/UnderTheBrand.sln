@@ -31,11 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.Test", "Model.Test\Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Core.Test", "Infrastructure.Core.Test\Infrastructure.Core.Test.csproj", "{D0988312-DF31-4DC5-B1BA-1EDA7B66F7BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Server", "Web\Server\Web.Server.csproj", "{47B1FD61-15BA-4D6C-A45C-9C9CDF3C8877}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Server", "Web\Server\Web.Server.csproj", "{47B1FD61-15BA-4D6C-A45C-9C9CDF3C8877}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Client", "Web\Client\Web.Client.csproj", "{F4E42DDD-3EAA-4904-B86E-F65AEBB96F00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Client", "Web\Client\Web.Client.csproj", "{F4E42DDD-3EAA-4904-B86E-F65AEBB96F00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Shared", "Web\Shared\Web.Shared.csproj", "{8F50C752-34FE-424B-A4D9-154C72E54A98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Shared", "Web\Shared\Web.Shared.csproj", "{8F50C752-34FE-424B-A4D9-154C72E54A98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

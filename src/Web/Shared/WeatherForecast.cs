@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Web.Shared
+namespace UnderTheBrand.Presentation.Web.Shared
 {
     public class WeatherForecast
     {

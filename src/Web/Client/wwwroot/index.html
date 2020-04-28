@@ -1,24 +1,27 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Web</title>
+    <meta name="viewport" content="width=device-width, initial=scale=1, maximum-scale=1" />
+    <title>Under the brand</title>
     <base href="/" />
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="_content/Radzen.Blazor/css/default-base.css" rel="stylesheet" />
 </head>
 
 <body>
-    <app>Loading...</app>
+    <app>
+        <div class="col text-center justify-content-center align-self-center">
+            Loading...
+        </div>
+    </app>
 
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
+    <script src="js/jq/jquery-3.0.0.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
 </body>
 
 </html>

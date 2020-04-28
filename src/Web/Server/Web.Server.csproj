@@ -1,14 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
+    <AssemblyName>Web.Server</AssemblyName>
+    <RootNamespace>UnderTheBrand.Presentation.Web.Server</RootNamespace>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.0-preview5.20216.8" />
+    <PackageReference Include="NetEscapades.Extensions.Logging.RollingFile" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure.Core\Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\..\SqliteDal\SqliteDal.csproj" />
     <ProjectReference Include="..\Client\Web.Client.csproj" />
     <ProjectReference Include="..\Shared\Web.Shared.csproj" />
   </ItemGroup>

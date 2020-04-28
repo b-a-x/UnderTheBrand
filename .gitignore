@@ -115,3 +115,6 @@
 /src/Web/Server/obj
 /src/Web/Shared/bin/Debug/netstandard2.1
 /src/Web/Shared/obj
+/src/Web/Client/bin/Release/netstandard2.1
+/src/Web/Server/bin/Release/netcoreapp3.1
+/src/Web/Shared/bin/Release/netstandard2.1

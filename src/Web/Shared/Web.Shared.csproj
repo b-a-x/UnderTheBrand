@@ -1,6 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AssemblyName>Web.Shared</AssemblyName>
+    <RootNamespace>UnderTheBrand.Presentation.Web.Shared</RootNamespace>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
