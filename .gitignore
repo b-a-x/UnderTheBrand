@@ -109,3 +109,9 @@
 /src/Infrastructure.Core.Test/obj
 /src/Model.Test/bin
 /src/Model.Test/obj
+/src/Web/Client/bin/Debug/netstandard2.1
+/src/Web/Client/obj
+/src/Web/Server/bin/Debug/netcoreapp3.1
+/src/Web/Server/obj
+/src/Web/Shared/bin/Debug/netstandard2.1
+/src/Web/Shared/obj
