@@ -5,6 +5,9 @@
 	  <RootNamespace>UnderTheBrand.Domain.ValueObject.Test</RootNamespace>
 	  <TargetFramework>netcoreapp3.1</TargetFramework>
 	  <IsPackable>false</IsPackable>
+	  <Nullable>enable</Nullable>
+	  <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+	  <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
 
   <ItemGroup>

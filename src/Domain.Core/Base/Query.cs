@@ -8,7 +8,7 @@ namespace UnderTheBrand.Domain.Core.Base
         {
         }
 
-        public Query(Spec<T> spec, Sorter<T> sorter = null)
+        public Query(Spec<T> spec, Sorter<T>? sorter = null)
         {
             Spec = spec;
             Sorter = sorter;

@@ -4,6 +4,9 @@
 	  <AssemblyName>Presentation.Web.Server</AssemblyName>
 	  <RootNamespace>UnderTheBrand.Presentation.Web.Server</RootNamespace>
 	  <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <Nullable>enable</Nullable>
+	  <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+	  <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
 
   <ItemGroup>

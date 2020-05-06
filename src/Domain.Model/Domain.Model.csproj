@@ -4,6 +4,9 @@
 	  <AssemblyName>Domain.Model</AssemblyName>
 	  <RootNamespace>UnderTheBrand.Domain.Model</RootNamespace>
 	  <TargetFramework>netstandard2.1</TargetFramework>
+	  <Nullable>enable</Nullable>
+	  <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+	  <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
 
   <ItemGroup>
