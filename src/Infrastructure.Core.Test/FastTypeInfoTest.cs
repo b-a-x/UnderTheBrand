@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UnderTheBrand.Infrastructure.Core.Utils;
 
-namespace UnderTheBrand.Tests.Infrastructure.Core.Test
+namespace UnderTheBrand.Infrastructure.Core.Test
 {
     [TestClass]
     public class FastTypeInfoTest

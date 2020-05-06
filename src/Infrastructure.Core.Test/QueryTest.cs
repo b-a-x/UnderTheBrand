@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UnderTheBrand.Domain.Core.Base;
 using UnderTheBrand.Infrastructure.Core.Extensions;
 
-namespace UnderTheBrand.Tests.Infrastructure.Core.Test
+namespace UnderTheBrand.Infrastructure.Core.Test
 {
     [TestClass]
     public class QueryTest

@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>Infrastructure.Core</AssemblyName>
-    <RootNamespace>UnderTheBrand.Infrastructure.Core</RootNamespace>
-    <TargetFramework>netstandard2.1</TargetFramework>
+	  <AssemblyName>Infrastructure.Core</AssemblyName>
+	  <RootNamespace>UnderTheBrand.Infrastructure.Core</RootNamespace>
+	  <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>

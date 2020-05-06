@@ -1,9 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <AssemblyName>Core</AssemblyName>
-    <RootNamespace>UnderTheBrand.Domain.Core</RootNamespace>
-    <TargetFramework>netstandard2.1</TargetFramework>
-  </PropertyGroup>
-
-</Project>

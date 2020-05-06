@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <AssemblyName>Infrastructure.Core.Test</AssemblyName>
-	  <RootNamespace>UnderTheBrand.Infrastructure.Core.Test</RootNamespace>
+	  <AssemblyName>Domain.Core.Test</AssemblyName>
+	  <RootNamespace>UnderTheBrand.Domain.Core.Test</RootNamespace>
 	  <TargetFramework>netcoreapp3.1</TargetFramework>
 	  <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Infrastructure.Core\Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>
