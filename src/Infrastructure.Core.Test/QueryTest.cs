@@ -18,7 +18,7 @@ namespace UnderTheBrand.Infrastructure.Core.Test
             _hasIdBaseTests = new EnumerableQuery<HasIdBaseTest>(CreateHasIdBaseTest());
         }
 
-        private IEnumerable<HasIdBaseTest> CreateHasIdBaseTest()
+        private static IEnumerable<HasIdBaseTest> CreateHasIdBaseTest()
         {
             return new List<HasIdBaseTest>
             {

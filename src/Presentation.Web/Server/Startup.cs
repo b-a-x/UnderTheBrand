@@ -17,24 +17,27 @@ namespace UnderTheBrand.Presentation.Web.Server
 {
     public class Startup
     {
+        private readonly string _connectionString;
         private readonly IConfiguration _configuration;
 
         public Startup(IConfiguration configuration)
         {
             _configuration = configuration;
+            _connectionString = _configuration.GetConnectionString("DefaultConnection");
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationContext>(o =>
-                o.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
+                o.UseSqlite(_connectionString));
+
             services.AddControllers()
                 .ConfigureApiBehaviorOptions(options =>
                 {
                     options.InvalidModelStateResponseFactory = ModelStateValidator.ValidateModelState;
                 });
 
-            services.AddInjection();
+            services.AddInjection(_connectionString);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
