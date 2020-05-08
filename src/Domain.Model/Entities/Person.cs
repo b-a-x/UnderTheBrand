@@ -1,10 +1,9 @@
 ﻿using System;
-using UnderTheBrand.Domain.Interface.Entities;
-using UnderTheBrand.Domain.ValueObject.Values;
+using UnderTheBrand.Domain.Model.Values;
 
 namespace UnderTheBrand.Domain.Model.Entities
 {
-    public class Person : Base.Entity, IPerson
+    public class Person : Base.Entity
     {
         protected Person() { }
 

@@ -4,7 +4,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using UnderTheBrand.Domain.ValueObject.Values;
+using UnderTheBrand.Domain.Model.Values;
 
 namespace UnderTheBrand.Presentation.Web.Server.Middleware
 {

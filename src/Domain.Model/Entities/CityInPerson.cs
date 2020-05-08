@@ -1,5 +1,5 @@
 ﻿using System;
-using UnderTheBrand.Domain.ValueObject.Values;
+using UnderTheBrand.Domain.Model.Values;
 
 namespace UnderTheBrand.Domain.Model.Entities
 {

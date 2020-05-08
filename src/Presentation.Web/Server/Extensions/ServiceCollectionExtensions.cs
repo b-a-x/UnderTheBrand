@@ -1,8 +1,7 @@
 ﻿using System.Data;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.DependencyInjection;
-using UnderTheBrand.Domain.Interface.Repositories;
-using UnderTheBrand.Infrastructure.SqliteDal.InitializeDB;
+using UnderTheBrand.Domain.Model.Interfaces;
 using UnderTheBrand.Infrastructure.SqliteDal.Repositories;
 
 namespace UnderTheBrand.Presentation.Web.Server.Extensions
@@ -27,7 +26,6 @@ namespace UnderTheBrand.Presentation.Web.Server.Extensions
         private static void AddScoped(IServiceCollection services)
         {
             services.AddScoped<IPersonRepository, PersonRepository>();
-            services.AddScoped<IManagerInitialize, ManagerInitialize>();
             services.AddSingleton<IDbConnection>(x =>
             {
                 var connection = new SqliteConnection(_connectionString);

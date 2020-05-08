@@ -139,3 +139,6 @@
 /src/Presentation.Web/Server/obj
 /src/Presentation.Web/Shared/bin
 /src/Presentation.Web/Shared/obj
+/src/Presentation.Web/Server/Database_UnderTheBrand.db
+/src/Domain.Model.Test/bin
+/src/Domain.Model.Test/obj

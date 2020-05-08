@@ -1,17 +1,13 @@
-using System.Linq;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using UnderTheBrand.Domain.ValueObject.Utils;
-using UnderTheBrand.Domain.ValueObject.Values;
-using UnderTheBrand.Infrastructure.SqliteDal.Context;
-using UnderTheBrand.Presentation.Web.Server.Extensions;
+using UnderTheBrand.Presentation.Web.Server.Data;
 using UnderTheBrand.Presentation.Web.Server.Middleware;
+using UnderTheBrand.Presentation.Web.Server.Models;
 
 namespace UnderTheBrand.Presentation.Web.Server
 {
@@ -26,18 +22,24 @@ namespace UnderTheBrand.Presentation.Web.Server
             _connectionString = _configuration.GetConnectionString("DefaultConnection");
         }
 
+        // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationContext>(o =>
+            services.AddDbContext<ApplicationDbContext>(o =>
                 o.UseSqlite(_connectionString));
 
-            services.AddControllers()
-                .ConfigureApiBehaviorOptions(options =>
-                {
-                    options.InvalidModelStateResponseFactory = ModelStateValidator.ValidateModelState;
-                });
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddInjection(_connectionString);
+            services.AddIdentityServer()
+                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+
+            services.AddAuthentication()
+                .AddIdentityServerJwt();
+
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,39 +52,32 @@ namespace UnderTheBrand.Presentation.Web.Server
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
                 app.UseWebAssemblyDebugging();
             }
             else
             {
                 app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
+            app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseIdentityServer();
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
+                endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
             });
-        }
-        public static class ModelStateValidator
-        {
-            //TODO: Тест
-            public static IActionResult ValidateModelState(ActionContext context)
-            {
-                (string fieldName, ModelStateEntry entry) = context.ModelState
-                    .First(x => x.Value.Errors.Count > 0);
-
-                string errorSerialized = entry.Errors.First().ErrorMessage;
-                Error error = Error.Deserialize(errorSerialized);
-                EnvelopeError envelope = EnvelopeError.Error(error, fieldName);
-                var result = new BadRequestObjectResult(envelope);
-                return result;
-            }
         }
     }
 }

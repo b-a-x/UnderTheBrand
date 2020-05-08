@@ -9,8 +9,4 @@
 	  <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Domain.Interface\Domain.Interface.csproj" />
-  </ItemGroup>
-
 </Project>
