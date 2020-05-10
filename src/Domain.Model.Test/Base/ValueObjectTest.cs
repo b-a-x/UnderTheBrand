@@ -8,24 +8,24 @@ namespace UnderTheBrand.Domain.Model.Test.Base
     [TestClass]
     public class ValueObjectTest
     {
-        private readonly string _value;
-        private readonly ValueObject _valueObject;
+        private readonly string value;
+        private readonly ValueObject valueObject;
         public ValueObjectTest()
         {
-            _value = Guid.NewGuid().ToString();
-            _valueObject = new ObjectTest(_value);
+            value = Guid.NewGuid().ToString();
+            valueObject = new ObjectTest(value);
         }
 
         [TestMethod]
         public void HasId_TwoObject_AreEqual()
         {
             // arrange
-            var newValueObject = new ObjectTest(_value);
+            var newValueObject = new ObjectTest(value);
             // act
 
             // assert
-            Assert.IsTrue(_valueObject.Equals(newValueObject));
-            Assert.IsTrue(_valueObject == newValueObject);
+            Assert.IsTrue(valueObject.Equals(newValueObject));
+            Assert.IsTrue(valueObject == newValueObject);
         }
 
         [TestMethod]
@@ -36,8 +36,8 @@ namespace UnderTheBrand.Domain.Model.Test.Base
             // act
 
             // assert
-            Assert.IsFalse(_valueObject.Equals(newValueObject));
-            Assert.IsTrue(_valueObject != newValueObject);
+            Assert.IsFalse(valueObject.Equals(newValueObject));
+            Assert.IsTrue(valueObject != newValueObject);
         }
 
         private class ObjectTest : ValueObject

@@ -9,8 +9,8 @@ namespace UnderTheBrand.Domain.Model.Entities
 
         public Person(PersonalName personalName, Age age)
         {
-            Age = age ?? throw new ArgumentNullException(nameof(age));
-            PersonalName = personalName ?? throw new ArgumentNullException(nameof(personalName));
+            this.Age = age ?? throw new ArgumentNullException(nameof(age));
+            this.PersonalName = personalName ?? throw new ArgumentNullException(nameof(personalName));
         }
 
         public PersonalName PersonalName { get; }

@@ -6,12 +6,12 @@ namespace UnderTheBrand.Presentation.Web.Server.Controllers
 {
     public class OidcConfigurationController : Controller
     {
-        private readonly ILogger<OidcConfigurationController> _logger;
+        private readonly ILogger<OidcConfigurationController> logger;
 
         public OidcConfigurationController(IClientRequestParametersProvider clientRequestParametersProvider, ILogger<OidcConfigurationController> logger)
         {
             ClientRequestParametersProvider = clientRequestParametersProvider;
-            _logger = logger;
+            this.logger = logger;
         }
 
         public IClientRequestParametersProvider ClientRequestParametersProvider { get; }

@@ -7,7 +7,7 @@ namespace UnderTheBrand.Presentation.Web.Server
 {
     public class Program
     {
-        private const string AppSettingsJson = "appsettings.json";
+        private const string appSettingsJson = "appsettings.json";
 
         public static void Main(string[] args)
         {
@@ -26,7 +26,7 @@ namespace UnderTheBrand.Presentation.Web.Server
         private static string GetUrls()
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                .AddJsonFile(AppSettingsJson, false, true)
+                .AddJsonFile(appSettingsJson, false, true)
                 .Build();
             return configuration.GetValue<string>("launchSettings:componentBaseUrl");
         }

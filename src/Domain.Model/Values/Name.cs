@@ -17,7 +17,7 @@ namespace UnderTheBrand.Domain.Model.Values
 
         private Name(string value)
         {
-            Value = value;
+            this.Value = value;
         }
 
         public string Value { get; }

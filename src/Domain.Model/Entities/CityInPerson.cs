@@ -9,8 +9,8 @@ namespace UnderTheBrand.Domain.Model.Entities
 
         public CityInPerson(City city, Person person)
         {
-            City = city ?? throw new ArgumentNullException(nameof(city));
-            Person = person ?? throw new ArgumentNullException(nameof(person));
+            this.City = city ?? throw new ArgumentNullException(nameof(city));
+            this.Person = person ?? throw new ArgumentNullException(nameof(person));
         }
 
         public City City { get; }

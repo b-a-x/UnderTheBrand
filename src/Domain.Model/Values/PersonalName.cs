@@ -12,8 +12,8 @@ namespace UnderTheBrand.Domain.Model.Values
 
         public PersonalName(Name firstName, Name lastName)
         {
-            FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
-            LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
+            this.FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
+            this.LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
         }
 
         public Name FirstName { get; }

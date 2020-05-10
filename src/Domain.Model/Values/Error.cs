@@ -13,8 +13,8 @@ namespace UnderTheBrand.Domain.Model.Values
 
         public Error(string code, string message)
         {
-            Code = code;
-            Message = message;
+            this.Code = code;
+            this.Message = message;
         }
 
         protected override IEnumerable<object> GetEqualityComponents()

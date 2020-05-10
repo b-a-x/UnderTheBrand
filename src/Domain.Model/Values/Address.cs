@@ -8,9 +8,9 @@ namespace UnderTheBrand.Domain.Model.Values
 
         private Address(string street, int zipCode, string comment)
         {
-            Street = street;
-            ZipCode = zipCode;
-            Comment = comment;
+            this.Street = street;
+            this.ZipCode = zipCode;
+            this.Comment = comment;
         }
 
         public string Street { get; }

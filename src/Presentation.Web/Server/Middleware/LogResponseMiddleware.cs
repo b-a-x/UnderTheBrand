@@ -8,37 +8,37 @@ namespace UnderTheBrand.Presentation.Web.Server.Middleware
 {
     public class LogResponseMiddleware
     {
-        private readonly RequestDelegate _next;
-        private readonly ILogger<LogResponseMiddleware> _logger;
-        private readonly LogLevel _logLevel;
+        private readonly RequestDelegate next;
+        private readonly ILogger<LogResponseMiddleware> logger;
+        private readonly LogLevel logLevel;
 
         public LogResponseMiddleware(RequestDelegate next, ILogger<LogResponseMiddleware> logger)
         {
-            _next = next;
-            _logger = logger;
-            _logLevel = LogLevel.Information;
+            this.next = next;
+            this.logger = logger;
+            this.logLevel = LogLevel.Information;
         }
 
         public async Task Invoke(HttpContext context)
         {
-            if (_logger.IsEnabled(_logLevel))
+            if (logger.IsEnabled(logLevel))
             {
                 Stream originalResponseBody = context.Response.Body;
                 var responseBodyStream = new MemoryStream();
                 context.Response.Body = responseBodyStream;
 
-                await _next(context);
+                await next(context);
 
                 responseBodyStream.Seek(0, SeekOrigin.Begin);
 
-                _logger.Log(_logLevel, MessageBuild(context, new StreamReader(responseBodyStream).ReadToEnd()));
+                logger.Log(logLevel, MessageBuild(context, new StreamReader(responseBodyStream).ReadToEnd()));
 
                 responseBodyStream.Seek(0, SeekOrigin.Begin);
                 await responseBodyStream.CopyToAsync(originalResponseBody);
             }
             else
             {
-                await _next(context);
+                await next(context);
             }
         }
 

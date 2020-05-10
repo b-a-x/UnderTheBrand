@@ -9,7 +9,7 @@ namespace UnderTheBrand.Domain.Model.Values
 
         private Email(string value)
         {
-            Value = value;
+            this.Value = value;
         }
 
         public string Value { get; }

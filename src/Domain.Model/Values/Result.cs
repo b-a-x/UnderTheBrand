@@ -73,7 +73,7 @@ namespace UnderTheBrand.Domain.Model.Values
 
     public sealed class Result<T> : Result
     {
-        private T _value;
+        private T value;
 
         public T Value
         {
@@ -81,10 +81,10 @@ namespace UnderTheBrand.Domain.Model.Values
             {
                 if (!Success) throw new ArgumentNullException();
 
-                return _value;
+                return value;
             }
 
-            private set => _value = value;
+            private set => this.value = value;
         }
 
         public Result(T value, bool success, string error)
@@ -92,7 +92,7 @@ namespace UnderTheBrand.Domain.Model.Values
         {
             if (value != null && !Success) throw new ArgumentNullException();
 
-            Value = value;
+            this.Value = value;
         }
 
         public Result(T value, bool success, Error error)
@@ -100,7 +100,7 @@ namespace UnderTheBrand.Domain.Model.Values
         {
             if (value != null && !Success) throw new ArgumentNullException();
 
-            Value = value;
+            this.Value = value;
         }
     }
 }

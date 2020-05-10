@@ -5,7 +5,7 @@ namespace UnderTheBrand.Domain.Model.Extensions
 {
     public static class HasIdExtensions
     {
-        public static bool IsNew<TKey>(this IHasId<TKey> obj)
+        internal static bool IsNew<TKey>(this IHasId<TKey> obj)
             where TKey : IEquatable<TKey>
         {
             return obj.Id == null || obj.Id.Equals(other: default);

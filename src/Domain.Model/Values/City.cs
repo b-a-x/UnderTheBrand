@@ -9,8 +9,8 @@ namespace UnderTheBrand.Domain.Model.Values
 
         public City(string name, bool isEnabled)
         {
-            Name = name;
-            IsEnabled = isEnabled;
+            this.Name = name;
+            this.IsEnabled = isEnabled;
         }
 
         public static Result<City> Create(string name, bool value)

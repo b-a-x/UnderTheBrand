@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using UnderTheBrand.Presentation.Web.Server.Data;
+using UnderTheBrand.Presentation.Web.Server.Extensions;
 using UnderTheBrand.Presentation.Web.Server.Middleware;
 using UnderTheBrand.Presentation.Web.Server.Models;
 
@@ -13,13 +14,13 @@ namespace UnderTheBrand.Presentation.Web.Server
 {
     public class Startup
     {
-        private readonly string _connectionString;
-        private readonly IConfiguration _configuration;
+        private readonly string connectionString;
+        private readonly IConfiguration configuration;
 
         public Startup(IConfiguration configuration)
         {
-            _configuration = configuration;
-            _connectionString = _configuration.GetConnectionString("DefaultConnection");
+            this.configuration = configuration;
+            this.connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -27,7 +28,7 @@ namespace UnderTheBrand.Presentation.Web.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(o =>
-                o.UseSqlite(_connectionString));
+                o.UseSqlite(connectionString));
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -40,6 +41,7 @@ namespace UnderTheBrand.Presentation.Web.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddInjection(connectionString);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

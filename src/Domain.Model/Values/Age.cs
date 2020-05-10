@@ -8,7 +8,7 @@ namespace UnderTheBrand.Domain.Model.Values
 
         private Age(int value)
         {
-            Value = value;
+            this.Value = value;
         }
 
         public int Value { get; }
