@@ -19,11 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.SqliteDal", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Model.Test", "Domain.Model.Test\Domain.Model.Test.csproj", "{080F5FF9-790A-4532-A1E0-704BDAEB534A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation.Web.Server", "Presentation.Web\Server\Presentation.Web.Server.csproj", "{B3A5F60A-02B8-496B-8B79-035C8A6E5EDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.Web.Server", "Presentation.Web\Server\Presentation.Web.Server.csproj", "{B3A5F60A-02B8-496B-8B79-035C8A6E5EDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation.Web.Client", "Presentation.Web\Client\Presentation.Web.Client.csproj", "{1F35167D-A636-40DB-B86C-D07E34012C11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.Web.Client", "Presentation.Web\Client\Presentation.Web.Client.csproj", "{1F35167D-A636-40DB-B86C-D07E34012C11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation.Web.Shared", "Presentation.Web\Shared\Presentation.Web.Shared.csproj", "{0A6A4A39-D0FD-4119-9D77-B6C67B3AA4C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.Web.Shared", "Presentation.Web\Shared\Presentation.Web.Shared.csproj", "{0A6A4A39-D0FD-4119-9D77-B6C67B3AA4C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
