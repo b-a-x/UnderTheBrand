@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using UnderTheBrand.Domain.Model.Values;
 
-namespace UnderTheBrand.Presentation.Web.Server.Middleware
+namespace UnderTheBrand.Presentation.Web.Server.Middlewaries
 {
     // TODO: тест
     public class LogErrorMiddleware

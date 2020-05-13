@@ -311,6 +311,22 @@ a, a:hover {
     border: 0;
 }
 
+.collapsed-sidebar .page-header, .collapsed-sidebar .page-inner {
+    width: calc(100% - 61px);
+}
+
+.page-inner {
+    position: relative;
+    padding: 30px;
+    width: calc(100% - 200px);
+    float: right;
+}
+
+.hidden-sidebar .page-header, .hidden-sidebar .page-inner {
+    width: 100%;
+    float: none;
+}
+
 @media (min-width:768px) {
     .navbar-nav {
         float: left;

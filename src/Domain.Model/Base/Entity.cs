@@ -1,6 +1,8 @@
-﻿namespace UnderTheBrand.Domain.Model.Base
+﻿using System;
+
+namespace UnderTheBrand.Domain.Model.Base
 {
-    public class Entity : HasIdBase<string>
+    public class Entity : HasIdBase<Guid>
     {
     }
 }

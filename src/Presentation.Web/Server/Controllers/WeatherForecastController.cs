@@ -8,7 +8,7 @@ using UnderTheBrand.Presentation.Web.Shared;
 
 namespace UnderTheBrand.Presentation.Web.Server.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

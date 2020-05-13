@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.Logging;
 
-namespace UnderTheBrand.Presentation.Web.Server.Middleware
+namespace UnderTheBrand.Presentation.Web.Server.Middlewaries
 {
     public class LogRequestMiddleware
     {
