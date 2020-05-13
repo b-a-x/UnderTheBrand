@@ -11,7 +11,6 @@ namespace UnderTheBrand.Infrastructure.SqliteDal.Configurations
             builder.ToTable("Persons");
 
             builder.HasKey(p => p.Id);
-            builder.Property(p => p.Id).IsRequired();
             builder.HasIndex(p => p.Id).IsUnique();
 
             builder.OwnsOne(p => p.Age, a => {

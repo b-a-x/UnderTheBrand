@@ -32,7 +32,7 @@ namespace UnderTheBrand.Presentation.Web.Server
             services.AddDbContext<ApplicationDbContext>(o =>
                 o.UseSqlite(connectionString));
 
-            services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
+            services.AddIdentity<ApplicationUser, IdentityRole<string>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 

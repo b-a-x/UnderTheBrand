@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace UnderTheBrand.Presentation.Web.Server.Models
 {
-    public class ApplicationUser : IdentityUser<Guid>
+    public class ApplicationUser : IdentityUser<string>
     {
     }
 }

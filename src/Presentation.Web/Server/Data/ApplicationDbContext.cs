@@ -8,7 +8,7 @@ using UnderTheBrand.Presentation.Web.Server.Models;
 
 namespace UnderTheBrand.Presentation.Web.Server.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<string>, string>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
