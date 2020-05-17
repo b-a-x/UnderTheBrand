@@ -11,7 +11,7 @@ namespace UnderTheBrand.Domain.Model.Test.Utils
         public void Properties_MoreZero_IsTrue()
         {
             // arrange
-            var props = FastTypeInfo<HasIdBaseTest>.PublicProperties;
+            var props = FastTypeInfo<HasIdTest>.PublicProperties;
             // act
 
             // assert
@@ -22,7 +22,7 @@ namespace UnderTheBrand.Domain.Model.Test.Utils
         public void Properties_One_IsTrue()
         {
             // arrange
-            var props = FastTypeInfo<HasIdBaseTest>.PublicProperties;
+            var props = FastTypeInfo<HasIdTest>.PublicProperties;
             // act
 
             // assert
