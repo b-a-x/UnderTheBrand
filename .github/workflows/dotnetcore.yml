@@ -28,11 +28,11 @@ jobs:
      - name: Test
        run: dotnet test ${{ env.ApplicationDir }} --configuration Release
      - name: Deploy
-     - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
-       with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
-          heroku_email: ${{secrets.HEROKU_EMAIL}}
+#     - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
+#       with:
+#          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+#          heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
+#          heroku_email: ${{secrets.HEROKU_EMAIL}}
 #          buildpack: "SOME BUILDPACK" #OPTIONAL
 #          branch: "YOUR_BRANCH" #OPTIONAL and DEFAULT - 'HEAD' (a.k.a your current branch)
 #          dontuseforce: false #OPTIONAL and DEFAULT - false
