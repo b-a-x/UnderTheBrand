@@ -24,4 +24,4 @@ jobs:
      needs: [build]  
      steps:
        - name: Test
-         run: dotnet test ./src/UnderTheBrand.sln --verbosity normal
+         run: dotnet test ./src/UnderTheBrand.sln
