@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build_test_deploy:
     runs-on: windows-latest
     steps:
      - uses: actions/checkout@v2
@@ -21,9 +21,3 @@ jobs:
        run: dotnet build ./src/UnderTheBrand.sln --configuration Release
      - name: Test
        run: dotnet test ./src/UnderTheBrand.sln --configuration Release
-  test: 
-     runs-on: windows-latest
-     needs: [build]  
-     steps:
-       - name: Test
-         run: dotnet test ./src/UnderTheBrand.sln --configuration Release
