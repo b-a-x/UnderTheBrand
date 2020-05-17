@@ -28,8 +28,8 @@ jobs:
      - name: Test
        run: dotnet test ${{ env.ApplicationDir }} --configuration Release
      - name: Deploy
-     - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
-#     - uses: actions/heroku-deploy@v1
+#     - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
+     - uses: actions/heroku-deploy@v1
        with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
