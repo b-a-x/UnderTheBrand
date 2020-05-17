@@ -27,7 +27,7 @@ jobs:
        run: dotnet build ${{ env.ApplicationDir }} --configuration Release
      - name: Test
        run: dotnet test ${{ env.ApplicationDir }} --configuration Release
-     - name: Deploy
+#     - name: Deploy
 #     - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
 #       with:
 #          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
