@@ -19,7 +19,7 @@ namespace UnderTheBrand.Presentation.Web.Server
                 .ConfigureLogging((context, logging) => { logging.AddFile(); })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    //webBuilder.UseUrls(GetUrls());
+                    webBuilder.UseUrls(GetUrls());
                     webBuilder.UseStartup<Startup>();
                 });
 
