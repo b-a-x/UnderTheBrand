@@ -1,1 +1,0 @@
-web: cd $HOME/heroku_output && dotnet ./Presentation.Web.Server
