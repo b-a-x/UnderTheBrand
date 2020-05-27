@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.DependencyInjection;
 using UnderTheBrand.Domain.Model.Interfaces;
@@ -25,8 +26,7 @@ namespace UnderTheBrand.Presentation.Web.Server.Extensions
 
         private static void AddScoped(IServiceCollection services)
         {
-            services.AddScoped<IPersonRepository, PersonRepository>();
-            services.AddSingleton<IDbConnection>(x =>
+            services.AddScoped<IDbConnection>(x =>
             {
                 var connection = new SqliteConnection(_connectionString);
                 connection.Open();
@@ -36,6 +36,8 @@ namespace UnderTheBrand.Presentation.Web.Server.Extensions
 
         private static void AddSingleton(IServiceCollection services)
         {
+            services.AddSingleton<IPersonRepository, PersonRepository>();
+            services.AddSingleton<Func<IDbConnection>>(serviceProvider => serviceProvider.GetService<IDbConnection>);
         }
     }
 }
